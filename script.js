@@ -54,7 +54,7 @@ const viewLocationBtn = document.querySelector(".view-location-btn");
 if (viewLocationBtn) {
     viewLocationBtn.addEventListener("click", () => {
         // Aquí puedes agregar la URL del mapa real del Hotel Venetur
-        window.open("https://maps.google.com", "_blank");
+        window.open("https://maps.app.goo.gl/TSRS8zQRdrEam9e6A", "_blank");
     });
 }
 
@@ -299,4 +299,39 @@ function simulatePlayback() {
 document.addEventListener('DOMContentLoaded', () => {
     addScrollAnimations();
     initAudioPlayer();
+
+    // Password protection logic
+    const passwordOverlay = document.getElementById('passwordOverlay');
+    const passwordInput = document.getElementById('passwordInput');
+    const passwordSubmit = document.getElementById('passwordSubmit');
+    const passwordError = document.getElementById('passwordError');
+    const correctPassword = '12345';
+
+    function showError(message) {
+        passwordError.textContent = message;
+    }
+
+    function clearError() {
+        passwordError.textContent = '';
+    }
+
+    function unlockPage() {
+        passwordOverlay.style.display = 'none';
+    }
+
+    passwordSubmit.addEventListener('click', () => {
+        const enteredPassword = passwordInput.value.trim();
+        if (enteredPassword === correctPassword) {
+            clearError();
+            unlockPage();
+        } else {
+            showError('La contraseña es incorrecta. Intenta de nuevo 😊');
+        }
+    });
+
+    passwordInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            passwordSubmit.click();
+        }
+    });
 });

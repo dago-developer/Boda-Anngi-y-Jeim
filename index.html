@@ -6,16 +6,29 @@
     <title>¡Nos Casamos! - Anngi y Jeim</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
 </head>
 <body>
+    <!-- Password Overlay -->
+    <div id="passwordOverlay" class="password-overlay">
+        <div class="password-box">
+            <h2>Esta es la invitación de nuestra boda</h2>
+            <p>Por favor, introduce la contraseña que se te dio al momento de enviarte este link</p>
+            <input type="password" id="passwordInput" placeholder="Contraseña" />
+            <button id="passwordSubmit">Ingresar</button>
+            <p id="passwordError" class="password-error"></p>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1 class="main-title">¡NOS CASAMOS!</h1>
             <div class="couple-names">
-                <span class="name">Anngi Fiorella</span>
-                <span class="and">&</span>
                 <span class="name">Jeim Eduardo</span>
+                <span class="and">&</span>
+                <span class="name">Anngi Fiorella</span>
             </div>
             <div class="blessing">Con la bendición de Dios y nuestros padres</div>
         </div>
@@ -26,14 +39,14 @@
         <div class="container">
             <div class="parents-grid">
                 <div class="parents-group">
-                    <h3>Padres de la novia</h3>
-                    <p>Matteo Noschese</p>
-                    <p>Silvia Pérez</p>
-                </div>
-                <div class="parents-group">
                     <h3>Padres del novio</h3>
                     <p>Salim Aslan</p>
                     <p>Jannida Rosales</p>
+                </div>
+                <div class="parents-group">
+                    <h3>Padres de la novia</h3>
+                    <p>Matteo Noschese</p>
+                    <p>Silvia Pérez</p>
                 </div>
             </div>
         </div>
@@ -132,16 +145,54 @@
             </div>
             <div class="location-content">
                 <div class="location-item">
-                    <h3 class="location-subtitle">Lugar</h3>
+                    <h3 class="location-subtitle">🏨 Hotel</h3>
                     <p class="venue-name">Hotel Venetur</p>
-                    <p class="venue-details">Playa del Hotel Venetur, Sector San Luis</p>
-                    <p class="venue-time">Hora: 4:45 P.M. - 5:45 P.M.</p>
+                    <p class="venue-details">Sector San Luis</p>
                 </div>
                 <div class="location-item">
-                    <h3 class="location-subtitle">Recepción</h3>
+                    <h3 class="location-subtitle">🏝️ Ceremonia</h3>
+                    <p class="venue-name">Playa del Hotel Venetur</p>
+                    <p class="venue-details">💍💒 4:45 P.M.</p>
+                </div>
+                <div class="location-item">
+                    <h3 class="location-subtitle">🍾 Recepción</h3>
                     <p class="venue-name">Salón El Yate</p>
-                    <p class="venue-details">Hotel Venetur, Sector San Luis</p>
-                    <p class="venue-time">Hora: 9:00 P.M. - 12:30 A.M.</p>
+                    <p class="venue-details">9:00 P.M.</p>
+                </div>
+            </div>
+            
+            <!-- Cronograma de Actividades -->
+            <div class="schedule-section">
+                <h3 class="schedule-title">📅 Cronograma del Día</h3>
+                <div class="schedule-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">10:00 P.M.</div>
+                        <div class="timeline-content">
+                            <h4>Entrada de los Novios</h4>
+                            <p>¡El momento más esperado!</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">11:00 P.M.</div>
+                        <div class="timeline-content">
+                            <h4>🍽️ Cena - Plato Principal</h4>
+                            <p>Disfruta de nuestra selección especial</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">12:00 A.M.</div>
+                        <div class="timeline-content">
+                            <h4>🎭 Show Sorpresa</h4>
+                            <p>Una sorpresa especial para todos</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">12:00 A.M.+</div>
+                        <div class="timeline-content">
+                            <h4>🎉 ¡Se Abre la Fiesta!</h4>
+                            <p>¡A bailar hasta que el cuerpo aguante!</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <button class="view-location-btn">VER UBICACIÓN</button>
@@ -233,20 +284,87 @@
                     <span>Con amor</span>
                 </div>
                 <div class="couple-names-footer">
-                    <span>Anngi Fiorella</span>
-                    <span>&</span>
                     <span>Jeim Eduardo</span>
+                    <span>&</span>
+                    <span>Anngi Fiorella</span>
                 </div>
                 <div class="created-by">
-                    <span>Creado con amor por mindblowmedia</span>
-                </div>
-                <div class="social">
-                    <a href="https://www.instagram.com/mindblowmedia/" target="_blank" class="social-link">@mindblowmedia</a>
+                    <span>Creado por <a href="https://www.instagram.com/mindblowmedia/" target="_blank" class="social-link">@mindblowmedia</a></span>
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Inicializar el efecto FOG en la sección hero
+        document.addEventListener('DOMContentLoaded', function() {
+            const fogEffect = VANTA.FOG({
+                el: ".hero",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                highlightColor: 0xff786e55,
+                midtoneColor: 0xff63643c,
+                lowlightColor: 0xffb4aa96,
+                blurFactor: 0.52,
+                speed: 1.00,
+                zoom: 0.55
+            });
+
+            // Transición muy suave al cargar
+            setTimeout(() => {
+                const hero = document.querySelector('.hero');
+                if (hero) {
+                    hero.style.opacity = '0';
+                    hero.style.transition = 'opacity 4s ease-out';
+                    
+                    // Fade in muy suave después de 1 segundo
+                    setTimeout(() => {
+                        hero.style.opacity = '1';
+                    }, 1000);
+                }
+            }, 1500);
+
+            // Animaciones de scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, observerOptions);
+
+            // Observar elementos de ubicación
+            const locationItems = document.querySelectorAll('.location-item');
+            locationItems.forEach((item, index) => {
+                item.style.transitionDelay = `${index * 0.2}s`;
+                observer.observe(item);
+            });
+
+            // Observar elementos del cronograma
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach((item, index) => {
+                item.style.transitionDelay = `${index * 0.3}s`;
+                observer.observe(item);
+            });
+
+            // Observar título del cronograma
+            const scheduleTitle = document.querySelector('.schedule-title');
+            if (scheduleTitle) {
+                scheduleTitle.style.opacity = '0';
+                scheduleTitle.style.transform = 'translateY(30px)';
+                scheduleTitle.style.transition = 'all 0.8s ease';
+                observer.observe(scheduleTitle);
+            }
+        });
+    </script>
 </body>
 </html>
