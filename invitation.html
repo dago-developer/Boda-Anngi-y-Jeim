@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Nos Casamos! - Anngi y Jeim</title>
+    <link rel="stylesheet" href="invitation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="main-title">¡NOS CASAMOS!</h1>
+            <div class="couple-names">
+                <span class="name">Jeim Eduardo</span>
+                <span class="and">&</span>
+                <span class="name">Anngi Fiorella</span>
+            </div>
+            <div class="blessing">Con la bendición de Dios y nuestros padres</div>
+        </div>
+    </section>
+
+    <!-- Parents Section -->
+    <section class="parents-section">
+        <div class="container">
+            <div class="parents-grid">
+                <div class="parents-group">
+                    <h3>Padres del novio</h3>
+                    <p>Salim Aslan</p>
+                    <p>Jannida Rosales</p>
+                </div>
+                <div class="parents-group">
+                    <h3>Padres de la novia</h3>
+                    <p>Matteo Noschese</p>
+                    <p>Silvia Pérez</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wedding Date Section -->
+    <section class="date-section">
+        <div class="container">
+            <h2>Nuestra boda será el sábado:</h2>
+            <div class="wedding-date">
+                <span class="day">06</span>
+                <span class="separator">|</span>
+                <span class="month">Diciembre</span>
+                <span class="separator">|</span>
+                <span class="year">2025</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="countdown-section">
+        <div class="container">
+            <h3>Solo faltan:</h3>
+            <div class="countdown-timer">
+                <div class="time-unit">
+                    <span class="number" id="days">432</span>
+                    <span class="label">DÍAS</span>
+                </div>
+                <div class="time-unit">
+                    <span class="number" id="hours">23</span>
+                    <span class="label">HORAS</span>
+                </div>
+                <div class="time-unit">
+                    <span class="number" id="minutes">11</span>
+                    <span class="label">MINUTOS</span>
+                </div>
+                <div class="time-unit">
+                    <span class="number" id="seconds">21</span>
+                    <span class="label">SEGUNDOS</span>
+                </div>
+            </div>
+            <button class="save-date-btn">
+                <span class="calendar-icon">📅</span>
+                Guarda la fecha
+            </button>
+        </div>
+    </section>
+
+    <!-- Invitation Text Section -->
+    <section class="invitation-section">
+        <div class="container">
+            <!-- Audio Player -->
+            <div class="audio-player">
+                <button class="play-pause-btn" id="playPauseBtn">
+                    <span class="play-icon">▶</span>
+                    <span class="pause-icon">⏸</span>
+                </button>
+                <div class="time-display">
+                    <span class="current-time" id="currentTime">0:00</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar">
+                        <div class="progress-fill" id="progressFill"></div>
+                        <div class="progress-handle" id="progressHandle"></div>
+                    </div>
+                </div>
+                <div class="time-display">
+                    <span class="total-time" id="totalTime">-3:45</span>
+                </div>
+            </div>
+            
+            <h2 class="invitation-title">Estás invitado</h2>
+            <p class="invitation-text">
+                Nos embarcamos en una nueva aventura, y nuestra boda no estaría completa sin la presencia de nuestros seres queridos, así que queremos estés allí con nosotros.
+            </p>
+            <div class="couple-photo">
+                <img src="foto.JPG" alt="Anngi y Jeim">
+            </div>
+
+            <!-- Versículo Bíblico -->
+            <div class="bible-verse">
+                <div class="verse-content">
+                    <p class="verse-text">"El amor nunca se da por vencido, jamás pierde la fé, siempre tiene esperanza, y se mantiene firme en toda circunstancia"</p>
+                    <p class="verse-reference">Corintios 13:7</p>
+                </div>
+            </div>
+
+            <!-- Audio Element -->
+            <audio id="weddingAudio" preload="auto" controls style="display: none;">
+                <source src="laboda.mp3" type="audio/mp3">
+                <source src="laboda.ogg" type="audio/ogg">
+                <source src="laboda.wav" type="audio/wav">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+
+            <!-- Indicador de carga de audio -->
+            <div id="audioLoading" class="audio-loading" style="display: none;">
+                <div class="loading-spinner"></div>
+                <p>Cargando música...</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location-section">
+        <div class="container">
+            <div class="location-header">
+                <div class="rings-icon">💍</div>
+                <h2>Nuestra Boda</h2>
+            </div>
+            <div class="location-content">
+                <div class="location-item">
+                    <h3 class="location-subtitle">🏨 Hotel</h3>
+                    <p class="venue-name">Hotel Venetur</p>
+                    <p class="venue-details">Sector San Luis</p>
+                </div>
+                <div class="location-item">
+                    <h3 class="location-subtitle">🏝️ Ceremonia</h3>
+                    <p class="venue-name">Playa del Hotel Venetur</p>
+                    <p class="venue-details">💍💒 4:45 P.M.</p>
+                </div>
+                <div class="location-item">
+                    <h3 class="location-subtitle">🍾 Recepción</h3>
+                    <p class="venue-name">Salón El Yate</p>
+                    <p class="venue-details">9:00 P.M.</p>
+                </div>
+            </div>
+            
+            <!-- Cronograma de Actividades -->
+            <div class="schedule-section">
+                <h3 class="schedule-title">📅 Cronograma del Día</h3>
+                <div class="schedule-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-time">10:00 P.M.</div>
+                        <div class="timeline-content">
+                            <h4>Entrada de los Novios</h4>
+                            <p>¡El momento más esperado!</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">11:00 P.M.</div>
+                        <div class="timeline-content">
+                            <h4>🍽️ Cena - Plato Principal</h4>
+                            <p>Disfruta de nuestra selección especial</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">12:00 A.M.</div>
+                        <div class="timeline-content">
+                            <h4>🎭 Show Sorpresa</h4>
+                            <p>Una sorpresa especial para todos</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">12:00 A.M.+</div>
+                        <div class="timeline-content">
+                            <h4>🎉 ¡Se Abre la Fiesta!</h4>
+                            <p>¡A bailar hasta que el cuerpo aguante!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="view-location-btn">VER UBICACIÓN</button>
+            </div>
+    </section>
+
+    <!-- Photo Sharing Section -->
+    <section class="photo-sharing">
+        <div class="container">
+            <div class="section-content">
+                <div class="icon">📸</div>
+                <h3>Ayuda a que crezcan nuestros recuerdos</h3>
+                <p>Publica tus fotos en redes sociales el día de la boda con nuestro hashtag</p>
+                <div class="hashtag">#BodaAnngiJeim</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gifts Section -->
+    <section class="gifts-section">
+        <div class="container">
+            <div class="gifts-content">
+                <div class="gift-icon">🎁</div>
+                <h2 class="gifts-title">Regalos</h2>
+                <p>La presencia de nuestros seres queridos es el regalo más valioso que podemos recibir. Tu compañía en este día tan especial llena nuestros corazones de alegría y hace que este momento sea verdaderamente inolvidable.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section class="rsvp-section">
+        <div class="container">
+            <div class="rsvp-content">
+                <div class="rsvp-icon">✉️</div>
+                <h2>Confirma Tu Asistencia</h2>
+            </div>
+        </div>
+    </section>
+
+    <!-- RSVP Form Section -->
+    <section class="rsvp-form-section">
+        <div class="container">
+            <h2>Información Importante</h2>
+            <div id="guestInfo" class="guest-info">
+                <!-- Aquí se insertará la información con JS -->
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="created-by">
+                    <span class="heart">💕</span>
+                    <span>Con amor</span>
+                </div>
+                <div class="couple-names-footer">
+                    <span>Jeim Eduardo</span>
+                    <span>&</span>
+                    <span>Anngi Fiorella</span>
+                </div>
+                <div class="created-by">
+                    <span>Creado por <a href="https://www.instagram.com/mindblowmedia/" target="_blank" class="social-link">@mindblowmedia</a></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Inicializar el efecto FOG en la sección hero
+        document.addEventListener('DOMContentLoaded', function() {
+            const fogEffect = VANTA.FOG({
+                el: ".hero",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                highlightColor: 0xff786e55,
+                midtoneColor: 0xff63643c,
+                lowlightColor: 0xffb4aa96,
+                blurFactor: 0.15,
+                speed: 0.70,
+                zoom: 0.55
+            });
+
+            // Transición muy suave al cargar
+            setTimeout(() => {
+                const hero = document.querySelector('.hero');
+                if (hero) {
+                    hero.style.opacity = '0';
+                    hero.style.transition = 'opacity 4s ease-out';
+                    
+                    // Fade in muy suave después de 1 segundo
+                    setTimeout(() => {
+                        hero.style.opacity = '1';
+                    }, 1000);
+                }
+            }, 1500);
+
+            // Animaciones de scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                    }
+                });
+            }, observerOptions);
+
+            // Observar elementos de ubicación
+            const locationItems = document.querySelectorAll('.location-item');
+            locationItems.forEach((item, index) => {
+                item.style.transitionDelay = `${index * 0.2}s`;
+                observer.observe(item);
+            });
+
+            // Observar elementos del cronograma
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach((item, index) => {
+                item.style.transitionDelay = `${index * 0.3}s`;
+                observer.observe(item);
+            });
+
+            // Observar título del cronograma
+            const scheduleTitle = document.querySelector('.schedule-title');
+            if (scheduleTitle) {
+                scheduleTitle.style.opacity = '0';
+                scheduleTitle.style.transform = 'translateY(30px)';
+                scheduleTitle.style.transition = 'all 0.8s ease';
+                observer.observe(scheduleTitle);
+            }
+
+            // ANIMACIONES ESPECÍFICAS PARA PADRES
+            const parentsGrid = document.querySelector('.parents-grid');
+            const parentsGroups = document.querySelectorAll('.parents-group');
+
+            if (parentsGrid) {
+                observer.observe(parentsGrid);
+            }
+
+            parentsGroups.forEach((group, index) => {
+                observer.observe(group);
+            });
+
+            // ANIMACIÓN ESPECIAL PARA LA IMAGEN DE LA PAREJA
+            const couplePhoto = document.querySelector('.couple-photo');
+            if (couplePhoto) {
+                observer.observe(couplePhoto);
+
+                // Agregar efecto coqueto después de la animación inicial
+                const observerPhoto = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            setTimeout(() => {
+                                entry.target.classList.add('coqueto');
+                            }, 1000); // Inicia el efecto coqueto después de 1 segundo
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                observerPhoto.observe(couplePhoto);
+            }
+
+            // ANIMACIÓN PARA EL VERSÍCULO BÍBLICO
+            const bibleVerse = document.querySelector('.bible-verse');
+            if (bibleVerse) {
+                observer.observe(bibleVerse);
+            }
+
+            // ANIMACIÓN PARA LA INFORMACIÓN DEL INVITADO
+            const guestInfo = document.querySelector('.guest-info');
+            if (guestInfo) {
+                observer.observe(guestInfo);
+            }
+        });
+
+
+        // Manejo del formulario de contraseña
+        document.addEventListener("DOMContentLoaded", function() {
+            const guestData = JSON.parse(localStorage.getItem("guestData"));
+            const guestInfoDiv = document.getElementById("guestInfo");
+
+            if (!guestData) {
+                guestInfoDiv.innerHTML = `
+                    <div class="guest-error">
+                        <p>⚠️ No se encontró información del invitado.<br>
+                        Por favor vuelve a la página principal e ingresa tu contraseña.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Crear HTML dinámico elegante con los datos
+            let membersList = guestData.members.map((name, index) =>
+                `<li class="guest-member-item">
+                    <span class="guest-member-number">${index + 1}.</span>
+                    <span>${name}</span>
+                </li>`
+            ).join("");
+
+            guestInfoDiv.innerHTML = `
+                <div class="guest-main-info">
+                    <h3 class="guest-family-name">${guestData.familyName}</h3>
+                    <p class="guest-welcome">¡Te esperamos con mucho cariño en nuestra boda!</p>
+                </div>
+
+                <div class="guest-details-grid">
+                    <div class="guest-detail-item">
+                        <div class="guest-detail-label">Mesa Asignada</div>
+                        <div class="guest-detail-value">${guestData.tableNumber}</div>
+                    </div>
+                    <div class="guest-detail-item">
+                        <div class="guest-detail-label">Cantidad de Invitados</div>
+                        <div class="guest-detail-value">${guestData.maxGuests}</div>
+                    </div>
+                </div>
+
+                <div class="guest-members-section">
+                    <h4 class="guest-members-title">Personas Invitadas</h4>
+                    <ul class="guest-members-list">
+                        ${membersList}
+                    </ul>
+                </div>
+            `;
+
+            // Agregar animación después de un breve delay
+            setTimeout(() => {
+                guestInfoDiv.classList.add('animate');
+            }, 500);
+        });
+    </script>
+</body>
+</html>

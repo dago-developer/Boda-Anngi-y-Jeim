@@ -197,28 +197,131 @@ function initAudioPlayer() {
     const progressFill = document.getElementById('progressFill');
     const progressHandle = document.getElementById('progressHandle');
     const progressContainer = document.getElementById('progressBar');
-    
+
     if (!audio || !playPauseBtn) return;
-    
+
     // Configurar duración cuando se carga el audio
     audio.addEventListener('loadedmetadata', () => {
         duration = audio.duration;
         totalTimeEl.textContent = formatTime(duration);
     });
-    
+
     // Actualizar tiempo actual
     audio.addEventListener('timeupdate', () => {
         currentTime = audio.currentTime;
         currentTimeEl.textContent = formatTime(currentTime);
-        
+
         if (duration > 0) {
             const progress = (currentTime / duration) * 100;
             progressFill.style.width = progress + '%';
             progressHandle.style.left = progress + '%';
         }
     });
-    
-    // Controlar reproducción
+
+    // Función robusta para forzar autoplay
+    function forceAutoPlay() {
+        console.log('🎵 Intentando reproducción automática...');
+
+        // Estrategia 1: Intento inmediato
+        const attempt1 = audio.play();
+        if (attempt1 !== undefined) {
+            attempt1.then(() => {
+                console.log('✅ Reproducción automática exitosa (intento 1)');
+                isPlaying = true;
+                updatePlayButton();
+            }).catch(error => {
+                console.log('❌ Intento 1 falló:', error.message);
+
+                // Estrategia 2: Esperar interacción del usuario
+                const enableAudioOnInteraction = () => {
+                    console.log('👆 Interacción detectada, intentando reproducción...');
+                    const attempt2 = audio.play();
+
+                    if (attempt2 !== undefined) {
+                        attempt2.then(() => {
+                            console.log('✅ Reproducción exitosa después de interacción');
+                            isPlaying = true;
+                            updatePlayButton();
+                        }).catch(error2 => {
+                            console.log('❌ Intento 2 falló:', error2.message);
+
+                            // Estrategia 3: Muted autoplay + unmute
+                            console.log('🔇 Intentando muted autoplay...');
+                            audio.muted = true;
+                            const attempt3 = audio.play();
+
+                            if (attempt3 !== undefined) {
+                                attempt3.then(() => {
+                                    console.log('✅ Muted autoplay exitoso, intentando unmute...');
+                                    audio.muted = false;
+                                    isPlaying = true;
+                                    updatePlayButton();
+                                    console.log('✅ Audio reproduciéndose (unmuted)');
+                                }).catch(error3 => {
+                                    console.log('❌ Muted autoplay falló:', error3.message);
+                                    // Si todo falla, mantener estado inicial
+                                    isPlaying = false;
+                                    updatePlayButton();
+                                });
+                            }
+                        });
+                    }
+
+                    // Remover listeners después del primer uso
+                    document.removeEventListener('touchstart', enableAudioOnInteraction);
+                    document.removeEventListener('click', enableAudioOnInteraction);
+                    document.removeEventListener('scroll', enableAudioOnInteraction);
+                };
+
+                // Escuchar múltiples tipos de interacción
+                document.addEventListener('touchstart', enableAudioOnInteraction, { once: true });
+                document.addEventListener('click', enableAudioOnInteraction, { once: true });
+                document.addEventListener('scroll', enableAudioOnInteraction, { once: true });
+
+                // Estrategia 4: Reintentar después de un delay
+                setTimeout(() => {
+                    if (!isPlaying) {
+                        console.log('⏰ Reintentando reproducción después de delay...');
+                        const attempt4 = audio.play();
+                        if (attempt4 !== undefined) {
+                            attempt4.then(() => {
+                                console.log('✅ Reproducción exitosa en reintento');
+                                isPlaying = true;
+                                updatePlayButton();
+                            }).catch(error4 => {
+                                console.log('❌ Reintento falló:', error4.message);
+                            });
+                        }
+                    }
+                }, 2000);
+            });
+        }
+    }
+
+    // Función para actualizar el estado visual del botón
+    function updatePlayButton() {
+        const playIcon = playPauseBtn.querySelector('.play-icon');
+        const pauseIcon = playPauseBtn.querySelector('.pause-icon');
+
+        if (isPlaying) {
+            playIcon.classList.remove('active');
+            pauseIcon.classList.add('active');
+        } else {
+            playIcon.classList.add('active');
+            pauseIcon.classList.remove('active');
+        }
+    }
+
+    // Configurar el audio para mejor compatibilidad
+    audio.preload = 'auto';
+    audio.volume = 0.7;
+
+    // Intentar reproducción automática inmediatamente y después de un delay
+    forceAutoPlay();
+    setTimeout(forceAutoPlay, 500);
+    setTimeout(forceAutoPlay, 1500);
+
+    // Controlar reproducción manual
     playPauseBtn.addEventListener('click', () => {
         if (isPlaying) {
             audio.pause();
@@ -236,7 +339,7 @@ function initAudioPlayer() {
             playPauseBtn.querySelector('.pause-icon').classList.add('active');
         }
     });
-    
+
     // Controlar progreso al hacer clic
     progressContainer.addEventListener('click', (e) => {
         if (duration > 0) {
@@ -246,8 +349,8 @@ function initAudioPlayer() {
             audio.currentTime = newTime;
         }
     });
-    
-    // Inicializar estado
+
+    // Inicializar estado visual
     playPauseBtn.querySelector('.play-icon').classList.add('active');
 }
 

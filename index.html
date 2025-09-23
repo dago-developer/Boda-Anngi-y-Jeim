@@ -3,367 +3,470 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Nos Casamos! - Anngi y Jeim</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Invitación de Boda - Anngi y Jeim</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
+        <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Password Overlay -->
-    <div id="passwordOverlay" class="password-overlay">
-        <div class="password-box">
-            <h2>Esta es la invitación de nuestra boda</h2>
-            <p>Por favor, introduce la contraseña que se te dio al momento de enviarte este link</p>
-            <input type="password" id="passwordInput" placeholder="Contraseña" />
-            <button id="passwordSubmit">Ingresar</button>
-            <p id="passwordError" class="password-error"></p>
-        </div>
-    </div>
+    <div class="modal-overlay">
+        <div class="invitation-card">
+            <div class="invitation-header">
+                <h1 class="invitation-couple-names">
+                    <span class="name">Jeim</span>
+                    <span class="ampersand">&</span>
+                    <span class="name">Anngi</span>
+                </h1>
+                <p class="invitation-subtitle">Tienen una noticia para ti...</p>
+                </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="main-title">¡NOS CASAMOS!</h1>
-            <div class="couple-names">
-                <span class="name">Jeim Eduardo</span>
-                <span class="and">&</span>
-                <span class="name">Anngi Fiorella</span>
-            </div>
-            <div class="blessing">Con la bendición de Dios y nuestros padres</div>
-        </div>
-    </section>
-
-    <!-- Parents Section -->
-    <section class="parents-section">
-        <div class="container">
-            <div class="parents-grid">
-                <div class="parents-group">
-                    <h3>Padres del novio</h3>
-                    <p>Salim Aslan</p>
-                    <p>Jannida Rosales</p>
-                </div>
-                <div class="parents-group">
-                    <h3>Padres de la novia</h3>
-                    <p>Matteo Noschese</p>
-                    <p>Silvia Pérez</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Wedding Date Section -->
-    <section class="date-section">
-        <div class="container">
-            <h2>Nuestra boda será el sábado:</h2>
-            <div class="wedding-date">
-                <span class="day">06</span>
-                <span class="separator">|</span>
-                <span class="month">Diciembre</span>
-                <span class="separator">|</span>
-                <span class="year">2025</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Countdown Section -->
-    <section class="countdown-section">
-        <div class="container">
-            <h3>Solo faltan:</h3>
-            <div class="countdown-timer">
-                <div class="time-unit">
-                    <span class="number" id="days">432</span>
-                    <span class="label">DÍAS</span>
-                </div>
-                <div class="time-unit">
-                    <span class="number" id="hours">23</span>
-                    <span class="label">HORAS</span>
-                </div>
-                <div class="time-unit">
-                    <span class="number" id="minutes">11</span>
-                    <span class="label">MINUTOS</span>
-                </div>
-                <div class="time-unit">
-                    <span class="number" id="seconds">21</span>
-                    <span class="label">SEGUNDOS</span>
-                </div>
-            </div>
-            <button class="save-date-btn">
-                <span class="calendar-icon">📅</span>
-                Guarda la fecha
-            </button>
-        </div>
-    </section>
-
-    <!-- Invitation Text Section -->
-    <section class="invitation-section">
-        <div class="container">
-            <!-- Audio Player -->
-            <div class="audio-player">
-                <button class="play-pause-btn" id="playPauseBtn">
-                    <span class="play-icon">▶</span>
-                    <span class="pause-icon">⏸</span>
-                </button>
-                <div class="time-display">
-                    <span class="current-time" id="currentTime">0:00</span>
-                </div>
-                <div class="progress-container">
-                    <div class="progress-bar" id="progressBar">
-                        <div class="progress-fill" id="progressFill"></div>
-                        <div class="progress-handle" id="progressHandle"></div>
+            <div class="decorative-arrow">
+                <div class="arrow-left"></div>
+                <div class="arrow-center">
+                    <div class="heart-filled">♥</div>
                     </div>
+                <div class="arrow-right"></div>
                 </div>
-                <div class="time-display">
-                    <span class="total-time" id="totalTime">-3:45</span>
-                </div>
-            </div>
-            
-            <h2 class="invitation-title">Estás invitado</h2>
-            <p class="invitation-text">
-                Nos embarcamos en una nueva aventura, y nuestra boda no estaría completa sin la presencia de nuestros seres queridos, así que queremos estés allí con nosotros.
-            </p>
-            <div class="couple-photo">
-                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Anngi y Jeim">
-            </div>
-            
-            <!-- Audio Element -->
-            <audio id="weddingAudio" preload="metadata">
-                <!-- IMPORTANTE: Reemplazar con la URL real de "La Boda" de Camilo -->
-                <!-- Ejemplo: <source src="https://tu-servidor.com/la-boda-camilo.mp3" type="audio/mpeg"> -->
-                <source src="laboda.mp3" type="audio/mp3">
-                <!-- El reproductor funcionará con simulación si no se puede cargar el audio real -->
-            </audio>
-        </div>
-    </section>
 
-    <!-- Location Section -->
-    <section class="location-section">
-        <div class="container">
-            <div class="location-header">
-                <div class="rings-icon">💍</div>
-                <h2>Nuestra Boda</h2>
-            </div>
-            <div class="location-content">
-                <div class="location-item">
-                    <h3 class="location-subtitle">🏨 Hotel</h3>
-                    <p class="venue-name">Hotel Venetur</p>
-                    <p class="venue-details">Sector San Luis</p>
-                </div>
-                <div class="location-item">
-                    <h3 class="location-subtitle">🏝️ Ceremonia</h3>
-                    <p class="venue-name">Playa del Hotel Venetur</p>
-                    <p class="venue-details">💍💒 4:45 P.M.</p>
-                </div>
-                <div class="location-item">
-                    <h3 class="location-subtitle">🍾 Recepción</h3>
-                    <p class="venue-name">Salón El Yate</p>
-                    <p class="venue-details">9:00 P.M.</p>
-                </div>
-            </div>
-            
-            <!-- Cronograma de Actividades -->
-            <div class="schedule-section">
-                <h3 class="schedule-title">📅 Cronograma del Día</h3>
-                <div class="schedule-timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-time">10:00 P.M.</div>
-                        <div class="timeline-content">
-                            <h4>Entrada de los Novios</h4>
-                            <p>¡El momento más esperado!</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-time">11:00 P.M.</div>
-                        <div class="timeline-content">
-                            <h4>🍽️ Cena - Plato Principal</h4>
-                            <p>Disfruta de nuestra selección especial</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-time">12:00 A.M.</div>
-                        <div class="timeline-content">
-                            <h4>🎭 Show Sorpresa</h4>
-                            <p>Una sorpresa especial para todos</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-time">12:00 A.M.+</div>
-                        <div class="timeline-content">
-                            <h4>🎉 ¡Se Abre la Fiesta!</h4>
-                            <p>¡A bailar hasta que el cuerpo aguante!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="view-location-btn">VER UBICACIÓN</button>
-        </div>
-    </section>
+            <div class="password-section">
+                <p class="password-subtitle">Por favor, introduce la contraseña que se te dio al momento de enviarte este link</p>
 
-    <!-- Photo Sharing Section -->
-    <section class="photo-sharing">
-        <div class="container">
-            <div class="section-content">
-                <div class="icon">📸</div>
-                <h3>Ayuda a que crezcan nuestros recuerdos</h3>
-                <p>Publica tus fotos en redes sociales el día de la boda con nuestro hashtag</p>
-                <div class="hashtag">#BodaAnngiJeim</div>
-            </div>
+                <div class="password-form">
+                    <input type="password" id="invitationPassword" placeholder="Ingresa la contraseña" class="password-input">
+                    <button id="invitationSubmit" class="password-submit">¡HAZ CLIC!</button>
         </div>
-    </section>
 
-    <!-- Gifts Section -->
-    <section class="gifts-section">
-        <div class="container">
-            <div class="gifts-content">
-                <div class="gift-icon">🎁</div>
-                <h2 class="gifts-title">Regalos</h2>
-                <p>Tu presencia es nuestro mejor regalo, pero si deseas tener un detalle con nosotros, <a href="#" class="gift-link">haz clic aquí</a> para ver las opciones.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- RSVP Section -->
-    <section class="rsvp-section">
-        <div class="container">
-            <div class="rsvp-content">
-                <div class="rsvp-icon">✉️</div>
-                <h2>Confirma Tu Asistencia</h2>
-            </div>
-        </div>
-    </section>
-
-    <!-- RSVP Form Section -->
-    <section class="rsvp-form-section">
-        <div class="container">
-            <h2>Información Importante</h2>
-            <form class="rsvp-form" id="rsvpForm">
-                <div class="form-group">
-                    <label>Mesa asignada:</label>
-                    <span class="table-number">#10</span>
-                </div>
-                
-                <div class="form-group">
-                    <label for="attendees">CANTIDAD DE ASISTENTES</label>
-                    <input type="number" id="attendees" name="attendees" min="1" max="10" value="4" required>
-                </div>
-                
-                <div class="form-group checkbox-group">
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="addCompanions" name="addCompanions" checked>
-                        <span class="checkmark"></span>
-                        ¿DESEAS AGREGAR EL NOMBRE DE TUS ACOMPAÑANTES?
-                    </label>
-                </div>
-                
-                <div class="companions-section" id="companionsSection">
-                    <div class="companion-input">
-                        <label>Invitado #1</label>
-                        <input type="text" name="companion1" placeholder="Nombre completo">
-                    </div>
-                    <div class="companion-input">
-                        <label>Invitado #2</label>
-                        <input type="text" name="companion2" placeholder="Nombre completo">
-                    </div>
-                    <div class="companion-input">
-                        <label>Invitado #3</label>
-                        <input type="text" name="companion3" placeholder="Nombre completo">
-                    </div>
-                </div>
-                
-                <button type="submit" class="submit-btn">Confirmar Asistencia</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="created-by">
-                    <span class="heart">💕</span>
-                    <span>Con amor</span>
-                </div>
-                <div class="couple-names-footer">
-                    <span>Jeim Eduardo</span>
-                    <span>&</span>
-                    <span>Anngi Fiorella</span>
-                </div>
-                <div class="created-by">
-                    <span>Creado por <a href="https://www.instagram.com/mindblowmedia/" target="_blank" class="social-link">@mindblowmedia</a></span>
+                <div class="password-error" id="passwordError"></div>
+                <div class="password-success" id="passwordSuccess"></div>
                 </div>
             </div>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
     <script>
-        // Inicializar el efecto FOG en la sección hero
         document.addEventListener('DOMContentLoaded', function() {
-            const fogEffect = VANTA.FOG({
-                el: ".hero",
-                mouseControls: true,
-                touchControls: true,
-                gyroControls: false,
-                minHeight: 200.00,
-                minWidth: 200.00,
-                highlightColor: 0xff786e55,
-                midtoneColor: 0xff63643c,
-                lowlightColor: 0xffb4aa96,
-                blurFactor: 0.52,
-                speed: 1.00,
-                zoom: 0.55
-            });
+            const passwordInput = document.getElementById('invitationPassword');
+            const passwordSubmit = document.getElementById('invitationSubmit');
+            const passwordError = document.getElementById('passwordError');
+            const passwordSuccess = document.getElementById('passwordSuccess');
 
-            // Transición muy suave al cargar
-            setTimeout(() => {
-                const hero = document.querySelector('.hero');
-                if (hero) {
-                    hero.style.opacity = '0';
-                    hero.style.transition = 'opacity 4s ease-out';
-                    
-                    // Fade in muy suave después de 1 segundo
-                    setTimeout(() => {
-                        hero.style.opacity = '1';
-                    }, 1000);
-                }
-            }, 1500);
+            // Base de datos de contraseñas con información específica de cada familia
+           const passwordDatabase = {
+  // Mesa 1
+  "familiakabbabemalave": {
+    familyName: "Familia Kabbabe Malavé",
+    tableNumber: "1",
+    maxGuests: 2,
+    members: ["Jorge Kabbabe", "María Malavé"]
+  },
+  "familiasalmassighislain": {
+    familyName: "Familia Salmassi Ghislain",
+    tableNumber: "1",
+    maxGuests: 3,
+    members: ["Juan Salmassi", "Soraya Ghislain", "Johismar Salmassi"]
+  },
+  "srsalmasiyesposa": {
+    familyName: "Sr. Salmassi y esposa",
+    tableNumber: "1",
+    maxGuests: 2,
+    members: ["Ismary", "Jhonny"]
+  },
+  "familiakabbabescalia": {
+    familyName: "Familia Kabbabe Scalia",
+    tableNumber: "1",
+    maxGuests: 2,
+    members: ["Beba Scalia", "José Kabbabe"]
+  },
+  "familiabriceño": {
+    familyName: "Familia Briceño",
+    tableNumber: "1",
+    maxGuests: 2,
+    members: ["Chea", "Gabriela Briceño"]
+  },
+  "familiakabbabealbarran": {
+    familyName: "Familia Kabbabe Albarrán",
+    tableNumber: "1",
+    maxGuests: 2,
+    members: ["Daniel Kabbabe", "Jaimar Albarrán"]
+  },
 
-            // Animaciones de scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
+  // Mesa 2
+  "familiaferminvelasquez": {
+    familyName: "Familia Fermín Velásquez",
+    tableNumber: "2",
+    maxGuests: 3,
+    members: ["Antonio Fermín", "Josefina Velásquez", "Ivanna Fermín"]
+  },
+  "familiapilar": {
+    familyName: "Familia Pilar",
+    tableNumber: "2",
+    maxGuests: 2,
+    members: ["Mary Pilar", "Roxana Pilar"]
+  },
+  "marianeladelarosa": {
+    familyName: "Marianela de la Rosa",
+    tableNumber: "2",
+    maxGuests: 1,
+    members: ["Marianela de la Rosa"]
+  },
+  "eva": {
+    familyName: "Eva",
+    tableNumber: "2",
+    maxGuests: 2,
+    members: ["Eva", "Acompañante"]
+  },
+  "alexissalmassi": {
+    familyName: "Alexis Salmassi",
+    tableNumber: "2",
+    maxGuests: 1,
+    members: ["Alexis Salmassi"]
+  },
+  "lalisalmassi": {
+    familyName: "Lali Salmassi",
+    tableNumber: "2",
+    maxGuests: 1,
+    members: ["Lali Salmassi"]
+  },
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate');
-                    }
-                });
-            }, observerOptions);
+  // Mesa 3
+  "familianoschese": {
+    familyName: "Familia Noschese",
+    tableNumber: "3",
+    maxGuests: 3,
+    members: ["Giuseppe Noschese", "Marilyn", "José Gabriel Noschese"]
+  },
+  "familianoschesesilva": {
+    familyName: "Familia Noschese Silva",
+    tableNumber: "3",
+    maxGuests: 2,
+    members: ["Gino Noschese", "Blanca Silva"]
+  },
+  "danielreyes": {
+    familyName: "Daniel Reyes",
+    tableNumber: "3",
+    maxGuests: 1,
+    members: ["Daniel Reyes"]
+  },
+  "familiajazzannazzer": {
+    familyName: "Familia Jazzan Nazzer",
+    tableNumber: "3",
+    maxGuests: 2,
+    members: ["Alae Jazzan", "Amal Nazzer"]
+  },
+  "familianazzer": {
+    familyName: "Familia Nazzer",
+    tableNumber: "3",
+    maxGuests: 2,
+    members: ["Amira Nazzer", "Rubi Nazzer"]
+  },
+  "jaquelinejazzan": {
+    familyName: "Jaqueline Jazzan",
+    tableNumber: "3",
+    maxGuests: 1,
+    members: ["Jaqueline Jazzan"]
+  },
 
-            // Observar elementos de ubicación
-            const locationItems = document.querySelectorAll('.location-item');
-            locationItems.forEach((item, index) => {
-                item.style.transitionDelay = `${index * 0.2}s`;
-                observer.observe(item);
-            });
+  // Mesa 4
+  "wilmermaestre": {
+    familyName: "Wilmer Maestre",
+    tableNumber: "4",
+    maxGuests: 1,
+    members: ["Wilmer Maestre"]
+  },
+  "hectorvillarroel": {
+    familyName: "Héctor Villarroel",
+    tableNumber: "4",
+    maxGuests: 1,
+    members: ["Héctor Villarroel"]
+  },
+  "joaquinmarquez": {
+    familyName: "Joaquín Márquez",
+    tableNumber: "4",
+    maxGuests: 1,
+    members: ["Joaquín Márquez"]
+  },
+  "williammarquez": {
+    familyName: "William Márquez",
+    tableNumber: "4",
+    maxGuests: 1,
+    members: ["William Márquez"]
+  },
+  "albertolara": {
+    familyName: "Alberto Lara",
+    tableNumber: "4",
+    maxGuests: 1,
+    members: ["Alberto Lara"]
+  },
+  "tono": {
+    familyName: "Toño",
+    tableNumber: "4",
+    maxGuests: 1,
+    members: ["Toño"]
+  },
+  "jeanfranco": {
+    familyName: "Jean Franco",
+    tableNumber: "4",
+    maxGuests: 1,
+    members: ["Jean Franco"]
+  },
+  "gabrielyveronica": {
+    familyName: "Gabriel y Verónica Acuña",
+    tableNumber: "4",
+    maxGuests: 2,
+    members: ["Gabriel Acuña", "Verónica Acuña"]
+  },
+  "faisalyarianna": {
+    familyName: "Faisal y Arianna",
+    tableNumber: "4",
+    maxGuests: 2,
+    members: ["Faisal Jazzan", "Arianna Mota"]
+  },
 
-            // Observar elementos del cronograma
-            const timelineItems = document.querySelectorAll('.timeline-item');
-            timelineItems.forEach((item, index) => {
-                item.style.transitionDelay = `${index * 0.3}s`;
-                observer.observe(item);
-            });
+  // Mesa 5
+  "rahinierynicol": {
+    familyName: "Rahinier y Nicol",
+    tableNumber: "5",
+    maxGuests: 2,
+    members: ["Rahinier Peroza", "Nicol Peroza"]
+  },
+  "moisesycamila": {
+    familyName: "Moises y Camila",
+    tableNumber: "5",
+    maxGuests: 2,
+    members: ["Moises Arévalo", "Camila Millán"]
+  },
+  "joselinares": {
+    familyName: "José Linares",
+    tableNumber: "5",
+    maxGuests: 1,
+    members: ["José Linares"]
+  },
+  "sarakattae": {
+    familyName: "Sara Kattae",
+    tableNumber: "5",
+    maxGuests: 1,
+    members: ["Sara Kattae"]
+  },
+  "andresmarquez": {
+    familyName: "Andrés Márquez",
+    tableNumber: "5",
+    maxGuests: 1,
+    members: ["Andrés Márquez"]
+  },
+  "josejesusmorey": {
+    familyName: "José Jesús Morey",
+    tableNumber: "5",
+    maxGuests: 1,
+    members: ["José Jesús Morey"]
+  },
+  "stefaniafernandez": {
+    familyName: "Stefania Fernández",
+    tableNumber: "5",
+    maxGuests: 1,
+    members: ["Stefania Fernández"]
+  },
+  "sara5": {
+    familyName: "Sara",
+    tableNumber: "5",
+    maxGuests: 1,
+    members: ["Sara"]
+  },
 
-            // Observar título del cronograma
-            const scheduleTitle = document.querySelector('.schedule-title');
-            if (scheduleTitle) {
-                scheduleTitle.style.opacity = '0';
-                scheduleTitle.style.transform = 'translateY(30px)';
-                scheduleTitle.style.transition = 'all 0.8s ease';
-                observer.observe(scheduleTitle);
+  // Mesa 6
+  "hildacova": {
+    familyName: "Hilda Cova",
+    tableNumber: "6",
+    maxGuests: 1,
+    members: ["Hilda Cova"]
+  },
+  "enithcaracalla": {
+    familyName: "Enith Caracalla",
+    tableNumber: "6",
+    maxGuests: 1,
+    members: ["Enith Caracalla"]
+  },
+  "familiarodriguezperez": {
+    familyName: "Familia Rodríguez Pérez",
+    tableNumber: "6",
+    maxGuests: 2,
+    members: ["Yulis Pérez", "Luis José Rodríguez"]
+  },
+  "petracastañeda": {
+    familyName: "Petra Castañeda",
+    tableNumber: "6",
+    maxGuests: 1,
+    members: ["Petra Castañeda"]
+  },
+  "maugemoreno": {
+    familyName: "Mauge Moreno",
+    tableNumber: "6",
+    maxGuests: 1,
+    members: ["Mauge Moreno"]
+  },
+  "marilynperoza": {
+    familyName: "Marilyn Peroza",
+    tableNumber: "6",
+    maxGuests: 1,
+    members: ["Marilyn Peroza"]
+  },
+  "familiarengel6": {
+    familyName: "Familia Rengel",
+    tableNumber: "6",
+    maxGuests: 2,
+    members: ["Rosa Rengel", "Valeria Rengel"]
+  },
+  "familiapatiño6": {
+    familyName: "Familia Patiño",
+    tableNumber: "6",
+    maxGuests: 2,
+    members: ["Isabel", "César"]
+  },
+
+  // Mesa 7
+  "familiabarriosperez": {
+    familyName: "Familia Barrios Pérez",
+    tableNumber: "7",
+    maxGuests: 5,
+    members: ["Carlos Barrios", "América Pérez", "Carlos Alberto Barrios", "Carlos Julio Barrios", "Jessica"]
+  },
+  "familiaalarconramirez": {
+    familyName: "Familia Alarcón Ramírez",
+    tableNumber: "7",
+    maxGuests: 4,
+    members: ["Zoilymar Ramírez", "Álvaro Alarcón", "Gregory Ramírez", "Gertrudis"]
+  },
+  "familiaguzmangudiño": {
+    familyName: "Familia Guzmán Gudiño",
+    tableNumber: "7",
+    maxGuests: 3,
+    members: ["Andrys Gudiño", "Francisco Guzmán", "María Celeste Pérez"]
+  },
+
+  // Mesa 8
+  "familiaviloria": {
+    familyName: "Familia Viloria",
+    tableNumber: "8",
+    maxGuests: 2,
+    members: ["Katy", "Lulu"]
+  },
+
+  "familiabarreto": {
+    familyName: "Familia Barreto",
+    tableNumber: "8",
+    maxGuests: 2,
+    members: ["Emil", "Marisabel"]
+  },
+  "familiarengel8": {
+    familyName: "Familia Rengel",
+    tableNumber: "8",
+    maxGuests: 2,
+    members: ["Lili", "Juan"]
+  },
+  "familiapatiño8": {
+    familyName: "Familia Patiño",
+    tableNumber: "8",
+    maxGuests: 2,
+    members: ["Yily", "Carlos"]
+  },
+
+  // Mesa 9
+  "familiasalmassi1": {
+    familyName: "Familia Salmassi",
+    tableNumber: "9",
+    maxGuests: 2,
+    members: ["Nadima", "Gabriel"]
+  },
+  "familiasalmassi2": {
+    familyName: "Familia Salmassi",
+    tableNumber: "9",
+    maxGuests: 4,
+    members: ["Jorge Salmassi", "Norma Labrador", "Sara Salmassi", "Eduard Salmassi"]
+  },
+  "familiakabbabe9": {
+    familyName: "Familia Kabbabe",
+    tableNumber: "9",
+    maxGuests: 4,
+    members: ["Julieta", "Bety", "José", "Mireya"]
+  },
+  "samirsalmassi": {
+    familyName: "Samir Salmassi",
+    tableNumber: "9",
+    maxGuests: 1,
+    members: ["Samir Salmassi"]
+  },
+  "salomonsalem": {
+    familyName: "Salomón Salem",
+    tableNumber: "9",
+    maxGuests: 1,
+    members: ["Salomón Salem"]
+  },
+  "carlosgarcia": {
+    familyName: "Carlos García",
+    tableNumber: "9",
+    maxGuests: 1,
+    members: ["Carlos García"]
+  }
+};
+
+            function showError(message) {
+                passwordError.textContent = message;
+                passwordSuccess.textContent = '';
             }
+
+            function showSuccess(message) {
+                passwordSuccess.textContent = message;
+                passwordError.textContent = '';
+            }
+
+            function clearMessages() {
+                passwordError.textContent = '';
+                passwordSuccess.textContent = '';
+            }
+
+            passwordSubmit.addEventListener('click', function() {
+                const enteredPassword = passwordInput.value.trim().toLowerCase();
+
+                if (!enteredPassword) {
+                    showError('Por favor, ingresa una contraseña.');
+                    return;
+                }
+
+                // Buscar la contraseña en la base de datos
+                const guestData = passwordDatabase[enteredPassword];
+
+                if (guestData) {
+                    // Contraseña correcta - guardar datos y redirigir
+                    clearMessages();
+                    showSuccess('¡Contraseña correcta! Redirigiendo...');
+
+                    // Guardar datos del invitado en localStorage
+                    localStorage.setItem('guestData', JSON.stringify(guestData));
+
+                    // Deshabilitar el botón para evitar múltiples clics
+                    passwordSubmit.disabled = true;
+                    passwordSubmit.textContent = 'Accediendo...';
+
+                    // Redirigir a la invitación principal después de 1.5 segundos
+                    setTimeout(() => {
+                        window.location.href = 'invitation.html';
+                    }, 1500);
+                } else {
+                    // Contraseña incorrecta
+                    showError('Contraseña incorrecta. Verifica que hayas escrito correctamente la contraseña que se te proporcionó.');
+                    passwordInput.value = '';
+                    passwordInput.focus();
+                }
+            });
+
+            // Permitir envío con Enter
+            passwordInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    passwordSubmit.click();
+                }
+            });
+
+            // Limpiar mensajes al escribir
+            passwordInput.addEventListener('input', function() {
+                clearMessages();
+            });
         });
     </script>
 </body>
