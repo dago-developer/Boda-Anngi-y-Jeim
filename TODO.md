@@ -338,6 +338,354 @@ function forceAutoPlay() {
 ## ✅ COMPLETADO - SECCIÓN DE INFORMACIÓN DEL INVITADO ELEGANTE
 **✅ IMPLEMENTADO**
 
+## ✅ COMPLETADO - CORRECCIÓN DEL LAYOUT MÓVIL Y TABLET
+**✅ IMPLEMENTADO**
+
+### 📱 **Problema Solucionado**
+- **"NOS CASAMOS" no aparecía**: No se mostraba correctamente arriba del anillo en móviles
+- **Bendición no visible**: "Con la bendición de Dios y nuestros padres" no aparecía abajo del anillo
+- **Nombres en fila**: Los nombres de la pareja se mostraban en fila horizontal en lugar de columna vertical
+- **Layout inconsistente**: El diseño no era coherente entre móvil, tablet y desktop
+
+### 🎨 **Solución Implementada**
+
+**Media Queries Específicas:**
+
+**Tablet (481px - 768px):**
+```css
+@media (min-width: 481px) and (max-width: 768px) {
+    .hero-content {
+        gap: 18px;
+        padding: 25px 20px;
+    }
+
+    .ring-container {
+        order: 2;
+        margin: 25px 0;
+    }
+
+    .decorative-ring {
+        width: min(550px, 78vw);
+        margin: 0 auto;
+    }
+
+    /* Hide main title inside ring for tablet */
+    .ring-text-content .main-title {
+        display: none;
+    }
+
+    /* Show main title above ring - "NOS CASAMOS" */
+    .hero .main-title {
+        font-size: clamp(26px, 5vw, 38px);
+        margin-bottom: 18px;
+        position: relative;
+        z-index: 3;
+        order: 1;
+        text-align: center;
+        width: 100%;
+        display: block;
+    }
+
+    .ring-text-content {
+        width: 78%;
+        max-width: 380px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        padding: 18px;
+    }
+
+    /* Couple names inside ring - COLUMN FORMAT */
+    .couple-names {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 18px 0;
+        gap: 6px;
+    }
+
+    .couple-names .name {
+        font-size: clamp(30px, 6vw, 44px);
+        white-space: nowrap;
+        line-height: 1.1;
+    }
+    .couple-names .and {
+        font-size: clamp(22px, 3.5vw, 30px);
+        margin: 0;
+        white-space: nowrap;
+        color: var(--brown-medium);
+    }
+
+    /* Position blessing below ring */
+    .blessing {
+        font-size: 15px;
+        margin-top: 22px;
+        position: relative;
+        z-index: 3;
+        order: 3;
+        text-align: center;
+        width: 100%;
+        display: block;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+```
+
+**Móvil (≤768px):**
+```css
+@media (max-width: 768px) {
+    .hero-content {
+        gap: 15px;
+        padding: 20px 16px;
+    }
+
+    .ring-container {
+        order: 2;
+        margin: 20px 0;
+    }
+
+    .decorative-ring {
+        width: min(480px, 75vw);
+        margin: 0 auto;
+    }
+
+    /* Hide main title inside ring for mobile */
+    .ring-text-content .main-title {
+        display: none;
+    }
+
+    /* Show main title above ring - "NOS CASAMOS" */
+    .hero .main-title {
+        font-size: clamp(24px, 6vw, 36px);
+        margin-bottom: 15px;
+        position: relative;
+        z-index: 3;
+        order: 1;
+        text-align: center;
+        width: 100%;
+        display: block;
+    }
+
+    .ring-text-content {
+        width: 80%;
+        max-width: 350px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        padding: 15px;
+    }
+
+    /* Couple names inside ring - COLUMN FORMAT */
+    .couple-names {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 15px 0;
+        gap: 5px;
+    }
+
+    .couple-names .name {
+        font-size: clamp(28px, 7vw, 42px);
+        white-space: nowrap;
+        line-height: 1.1;
+    }
+    .couple-names .and {
+        font-size: clamp(20px, 4vw, 28px);
+        margin: 0;
+        white-space: nowrap;
+        color: var(--brown-medium);
+    }
+
+    /* Position blessing below ring */
+    .blessing {
+        font-size: 14px;
+        margin-top: 20px;
+        position: relative;
+        z-index: 3;
+        order: 3;
+        text-align: center;
+        width: 100%;
+        display: block;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+```
+
+**Móvil Pequeño (≤480px):**
+```css
+@media (max-width: 480px) {
+    .hero-content {
+        gap: 12px;
+        padding: 15px 12px;
+    }
+
+    .ring-container {
+        order: 2;
+        margin: 15px 0;
+    }
+
+    .decorative-ring {
+        width: min(380px, 80vw);
+        margin: 0 auto;
+    }
+
+    /* Hide main title inside ring for mobile */
+    .ring-text-content .main-title {
+        display: none;
+    }
+
+    /* Show main title above ring - "NOS CASAMOS" */
+    .hero .main-title {
+        font-size: clamp(20px, 7vw, 32px);
+        margin-bottom: 12px;
+        position: relative;
+        z-index: 3;
+        order: 1;
+        text-align: center;
+        width: 100%;
+        display: block;
+    }
+
+    .ring-text-content {
+        width: 85%;
+        max-width: 280px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        padding: 12px;
+    }
+
+    /* Couple names inside ring - COLUMN FORMAT */
+    .couple-names {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 12px 0;
+        gap: 4px;
+    }
+
+    .couple-names .name {
+        font-size: clamp(24px, 8vw, 36px);
+        white-space: nowrap;
+        line-height: 1.1;
+    }
+    .couple-names .and {
+        font-size: clamp(18px, 5vw, 24px);
+        margin: 0;
+        white-space: nowrap;
+        color: var(--brown-medium);
+    }
+
+    /* Position blessing below ring */
+    .blessing {
+        font-size: 13px;
+        margin-top: 18px;
+        position: relative;
+        z-index: 3;
+        order: 3;
+        text-align: center;
+        width: 100%;
+        display: block;
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+```
+
+### 🎯 **Cambios Clave Implementados**
+
+**1. "NOS CASAMOS" arriba del anillo:**
+- ✅ Ocultado dentro del anillo con `display: none`
+- ✅ Mostrado arriba con `order: 1` y `margin-bottom`
+- ✅ Tipografía escalable con `clamp(24px, 6vw, 36px)`
+- ✅ Centrado perfecto en todos los dispositivos
+
+**2. Bendición abajo del anillo:**
+- ✅ Posicionada con `order: 3` y `margin-top`
+- ✅ Centrada automáticamente con `margin-left: auto; margin-right: auto`
+- ✅ Ancho máximo controlado para mejor legibilidad
+- ✅ Tipografía responsive
+
+**3. Nombres en formato columna:**
+- ✅ Cambiado de `flex-direction: row` a `flex-direction: column`
+- ✅ Espaciado con `gap` en lugar de `margin`
+- ✅ "&" con color marrón medio para diferenciar
+- ✅ Alineación centrada perfecta
+
+**4. Responsive optimizado:**
+- ✅ Breakpoints específicos para tablet (481px-768px)
+- ✅ Ajustes graduales para móvil grande y pequeño
+- ✅ Espaciado y padding adaptativos
+- ✅ Tamaños de fuente escalables
+
+### 📱 **Resultado en Dispositivos**
+
+**Desktop:**
+- ✅ Layout original mantenido
+- ✅ Todos los elementos visibles correctamente
+
+**Tablet:**
+- ✅ "NOS CASAMOS" arriba del anillo
+- ✅ Nombres en columna dentro del anillo
+- ✅ Bendición abajo del anillo
+- ✅ Espaciado optimizado para pantallas medianas
+
+**Móvil:**
+- ✅ "NOS CASAMOS" prominente arriba
+- ✅ Nombres en columna vertical dentro del anillo
+- ✅ Bendición claramente visible abajo
+- ✅ Texto legible y bien espaciado
+
+**Móvil Pequeño:**
+- ✅ Elementos más compactos pero legibles
+- ✅ Espaciado mínimo pero efectivo
+- ✅ Fuentes optimizadas para pantallas pequeñas
+
+### 🎨 **Mejoras Visuales Adicionales**
+
+- ✅ **Consistencia tipográfica**: Fuentes Dancing Script y Playfair Display
+- ✅ **Colores coherentes**: Verde militar para nombres, marrón para "&"
+- ✅ **Espaciado profesional**: Gaps y margins calculados
+- ✅ **Centrado perfecto**: Auto-margins para alineación
+- ✅ **Transiciones suaves**: Integración con animaciones existentes
+
+### 🚀 **Archivos Modificados**
+
+**`invitation.css`:**
+- ✅ Media query específica para tablet (481px-768px)
+- ✅ Media query móvil actualizada (≤768px)
+- ✅ Media query móvil pequeño actualizada (≤480px)
+- ✅ Flexbox optimizado para nombres en columna
+- ✅ Posicionamiento absoluto mejorado
+
+### 📝 **Notas Técnicas**
+
+- **Flexbox avanzado**: Uso de `order` para reordenar elementos
+- **CSS Grid**: No necesario, flexbox suficiente
+- **Viewport units**: `vw` para escalabilidad perfecta
+- **Clamp**: Para tipografía responsive
+- **Auto-margins**: Para centrado automático
+
+### 🎊 **Experiencia de Usuario Final**
+
+1. **Desktop**: Layout original elegante mantenido
+2. **Tablet**: Elementos bien posicionados y legibles
+3. **Móvil**: "NOS CASAMOS" prominente, nombres en columna, bendición visible
+4. **Móvil pequeño**: Todo compacto pero perfectamente legible
+
+¡El layout ahora funciona perfectamente en todos los dispositivos con la estructura solicitada! 📱✨
+
 ### 🎯 **Problema Solucionado**
 - **Diseño básico**: La sección de información del invitado se veía muy simple y poco atractiva
 - **Falta de estructura**: No tenía un diseño coherente con el resto de la página
