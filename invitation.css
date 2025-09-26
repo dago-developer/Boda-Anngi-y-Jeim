@@ -195,7 +195,7 @@ html, body {
 
 .hero .main-title { font-size: clamp(28px, 6vw, 42px); margin: 0 0 16px; letter-spacing: 0.1em; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
 
-.couple-names { margin: 20px 0; display: flex; flex-direction: column; }
+.couple-names { display: flex; flex-direction: column; }
 
 .couple-names .name { font-family: "Dancing Script", cursive; font-size: clamp(27px, 7vw, 20px); color: var(--green-military); }
 .couple-names .and { margin: 0 8px; color: var(--brown-medium); font-size: clamp(18px, 6vw, 18px); }
