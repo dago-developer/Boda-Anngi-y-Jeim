@@ -240,6 +240,28 @@
         </div>
     </section>
 
+    <!-- Dress Code Section -->
+    <section class="dress-code-section">
+        <div class="container">
+            <div class="dress-code-content">
+                <h2 class="dress-code-title">CÓDIGO DE VESTIMENTA</h2>
+                <p class="dress-code-subtitle">SEMI-FORMAL</p>
+                <div class="dress-code-grid">
+                    <div class="dress-code-item">
+                        <img src="traje.png" alt="Traje para Caballeros" class="dress-icon">
+                        <p class="dress-label">Caballeros: traje</p>
+                        <p class="dress-cta">Haz clic para ver ejemplos</p>
+                    </div>
+                    <div class="dress-code-item">
+                        <img src="vestido.png" alt="Vestido para Damas" class="dress-icon">
+                        <p class="dress-label">Damas: vestido largo (no blanco)</p>
+                        <p class="dress-cta">Haz clic para ver ejemplos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- RSVP Section -->
     <section class="rsvp-section">
         <div class="container">
@@ -256,6 +278,21 @@
             <h2>Información Importante</h2>
             <div id="guestInfo" class="guest-info">
                 <!-- Aquí se insertará la información con JS -->
+            </div>
+
+            <!-- Reminder Section -->
+            <div class="reminder-section">
+                <div class="reminder-image">
+                    <img src="pareja.jpg" alt="Anngi y Jeim">
+                </div>
+                <div class="reminder-text">
+                    <p class="reminder-message">
+                        Tu presencia es lo más importante para nosotros en este día tan especial. Te esperamos con mucho cariño y alegría.
+                    </p>
+                    <p class="reminder-cta">
+                        Por favor, confirma tu asistencia para que podamos organizar todo perfectamente.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -280,6 +317,17 @@
             </div>
         </div>
     </footer>
+
+    <!-- Dress Code Modal -->
+    <div id="dressCodeModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modalTitle">Ejemplos de Vestimenta</h2>
+            <div id="modalImages" class="modal-images">
+                <!-- Images will be inserted here by JS -->
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
     <script>
@@ -351,6 +399,18 @@
                 observer.observe(scheduleTitle);
             }
 
+            // Observar elementos del dress code
+            const dressCodeTitle = document.querySelector('.dress-code-title');
+            if (dressCodeTitle) {
+                observer.observe(dressCodeTitle);
+            }
+
+            const dressCodeItems = document.querySelectorAll('.dress-code-item');
+            dressCodeItems.forEach((item, index) => {
+                item.style.transitionDelay = `${index * 0.2}s`;
+                observer.observe(item);
+            });
+
             // ANIMACIONES ESPECÍFICAS PARA PADRES
             const parentsGrid = document.querySelector('.parents-grid');
             const parentsGroups = document.querySelectorAll('.parents-group');
@@ -392,6 +452,12 @@
             const guestInfo = document.querySelector('.guest-info');
             if (guestInfo) {
                 observer.observe(guestInfo);
+            }
+
+            // ANIMACIÓN PARA LA SECCIÓN DE RECORDATORIO
+            const reminderSection = document.querySelector('.reminder-section');
+            if (reminderSection) {
+                observer.observe(reminderSection);
             }
         });
 
@@ -448,6 +514,48 @@
             setTimeout(() => {
                 guestInfoDiv.classList.add('animate');
             }, 500);
+        });
+
+        // Dress Code Modal Functionality
+        const modal = document.getElementById('dressCodeModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalImages = document.getElementById('modalImages');
+        const closeModal = document.querySelector('.close-modal');
+
+        const dressCodeItems = document.querySelectorAll('.dress-code-item');
+
+        dressCodeItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                const isMen = index === 0; // First item is men
+                const images = isMen
+                    ? ['hombre1.webp', 'hombre2.webp', 'hombre3.webp']
+                    : ['mujer1.webp', 'mujer2.webp', 'mujer3.webp'];
+
+                modalTitle.textContent = isMen ? 'Ejemplos para Caballeros' : 'Ejemplos para Damas';
+
+                modalImages.innerHTML = images.map(img => `
+                    <div class="modal-image-card">
+                        <img src="${img}" alt="Ejemplo de vestimenta" loading="lazy">
+                    </div>
+                `).join('');
+
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent background scroll
+            });
+        });
+
+        // Close modal when clicking close button
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
         });
     </script>
 </body>
