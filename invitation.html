@@ -233,7 +233,6 @@
     <section class="gifts-section">
         <div class="container">
             <div class="gifts-content">
-                <div class="gift-icon">🎁</div>
                 <h2 class="gifts-title">Regalos</h2>
                 <p>La presencia de nuestros seres queridos es el regalo más valioso que podemos recibir. Tu compañía en este día tan especial llena nuestros corazones de alegría y hace que este momento sea verdaderamente inolvidable.</p>
             </div>
@@ -249,13 +248,11 @@
                 <div class="dress-code-grid">
                     <div class="dress-code-item">
                         <img src="traje.png" alt="Traje para Caballeros" class="dress-icon">
-                        <p class="dress-label">Caballeros: traje</p>
-                        <p class="dress-cta">Haz clic para ver ejemplos</p>
+                        <p class="dress-label">Caballeros: traje (no beige)</p>
                     </div>
                     <div class="dress-code-item">
                         <img src="vestido.png" alt="Vestido para Damas" class="dress-icon">
                         <p class="dress-label">Damas: vestido largo (no blanco)</p>
-                        <p class="dress-cta">Haz clic para ver ejemplos</p>
                     </div>
                 </div>
             </div>
@@ -287,7 +284,7 @@
                 </div>
                 <div class="reminder-text">
                     <p class="reminder-message">
-                        El amor nos ha guiado hasta este momento bajo la bendición de Dios , y no hay mayor felicidad que compartirlo con nuestros seres queridos , será un privilegio para nosotros que nos acompañen es nuestra boda y celebremos juntos el inicio de esta hermosa bendición, que será nuestro camino juntos como esposos . Los esperamos con todo el amor del mundo.
+                        El amor nos ha guiado hasta este momento bajo la bendición de Dios , y no hay mayor felicidad que compartirlo con nuestros seres queridos , será un privilegio para nosotros que nos acompañen en nuestra boda y celebremos juntos el inicio de esta hermosa bendición, que será nuestro camino juntos como esposos . Los esperamos con todo el amor del mundo.
                     </p>
                     <p class="reminder-cta">
                         Por favor, confirma tu asistencia para que podamos organizar todo perfectamente.
@@ -318,16 +315,7 @@
         </div>
     </footer>
 
-    <!-- Dress Code Modal -->
-    <div id="dressCodeModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2 id="modalTitle">Ejemplos de Vestimenta</h2>
-            <div id="modalImages" class="modal-images">
-                <!-- Images will be inserted here by JS -->
-            </div>
-        </div>
-    </div>
+
 
     <script src="script.js"></script>
     <script>
@@ -516,47 +504,7 @@
             }, 500);
         });
 
-        // Dress Code Modal Functionality
-        const modal = document.getElementById('dressCodeModal');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalImages = document.getElementById('modalImages');
-        const closeModal = document.querySelector('.close-modal');
 
-        const dressCodeItems = document.querySelectorAll('.dress-code-item');
-
-        dressCodeItems.forEach((item, index) => {
-            item.addEventListener('click', () => {
-                const isMen = index === 0; // First item is men
-                const images = isMen
-                    ? ['hombres.png']
-                    : ['mujeres.png'];
-
-                modalTitle.textContent = isMen ? 'Ejemplos para Caballeros' : 'Ejemplos para Damas';
-
-                modalImages.innerHTML = images.map(img => `
-                    <div class="modal-image-card">
-                        <img src="${img}" alt="Ejemplo de vestimenta" loading="lazy">
-                    </div>
-                `).join('');
-
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden'; // Prevent background scroll
-            });
-        });
-
-        // Close modal when clicking close button
-        closeModal.addEventListener('click', () => {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-
-        // Close modal when clicking outside
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
     </script>
 </body>
 </html>
