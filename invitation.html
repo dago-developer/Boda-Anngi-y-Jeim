@@ -471,40 +471,48 @@
                 `;
                 return;
             }
-
-            // Crear HTML dinámico elegante con los datos
-            let membersList = guestData.members.map((name, index) =>
-                `<li class="guest-member-item">
-                    <span class="guest-member-number">${index + 1}.</span>
-                    <span>${name}</span>
-                </li>`
-            ).join("");
-
-            guestInfoDiv.innerHTML = `
-                <div class="guest-main-info">
-                    <h3 class="guest-family-name">${guestData.familyName}</h3>
-                    <p class="guest-welcome">¡Te esperamos con mucho cariño en nuestra boda!</p>
-                </div>
-
-                <div class="guest-details-grid">
-                    <div class="guest-detail-item">
-                        <div class="guest-detail-label">Mesa Asignada</div>
-                        <div class="guest-detail-value">${guestData.tableNumber}</div>
+            if (guestData.isForeign) {
+                const personalizedMessage = "Se que hoy no puedes estar aquí con nosotros por circunstancias ajenas a nuestra voluntad. Pero queremos decirte que eres un amigo muy importante para Nosotros y que este día lo celebramos en nombre de nosotros y de ustedes, por su gran amistad por su cariño a lo largo de todos estos años. Los queremos mucho y estamos felices de compartirles esta gran noticia, pidiéndole a Dios que pronto nos podamos reunir como familia y celebrar juntos ❤️";
+                guestInfoDiv.innerHTML = `
+                    <div class="guest-main-info">
+                        <h3 class="guest-family-name">${guestData.familyName}</h3>
+                        <p class="guest-welcome">Mensaje especial para ti:</p>
                     </div>
-                    <div class="guest-detail-item">
-                        <div class="guest-detail-label">Cantidad de Invitados</div>
-                        <div class="guest-detail-value">${guestData.maxGuests}</div>
+                    <div class="guest-message-section">
+                        <p class="personalized-message">${personalizedMessage}</p>
                     </div>
-                </div>
-
-                <div class="guest-members-section">
-                    <h4 class="guest-members-title">Personas Invitadas</h4>
-                    <ul class="guest-members-list">
-                        ${membersList}
-                    </ul>
-                </div>
-            `;
-
+                `;
+            } else {
+                // Crear HTML dinámico elegante con los datos
+                let membersList = guestData.members.map((name, index) =>
+                    `<li class="guest-member-item">
+                        <span class="guest-member-number">${index + 1}.</span>
+                        <span>${name}</span>
+                    </li>`
+                ).join("");
+                guestInfoDiv.innerHTML = `
+                    <div class="guest-main-info">
+                        <h3 class="guest-family-name">${guestData.familyName}</h3>
+                        <p class="guest-welcome">¡Te esperamos con mucho cariño en nuestra boda!</p>
+                    </div>
+                    <div class="guest-details-grid">
+                        <div class="guest-detail-item">
+                            <div class="guest-detail-label">Mesa Asignada</div>
+                            <div class="guest-detail-value">${guestData.tableNumber}</div>
+                        </div>
+                        <div class="guest-detail-item">
+                            <div class="guest-detail-label">Cantidad de Invitados</div>
+                            <div class="guest-detail-value">${guestData.maxGuests}</div>
+                        </div>
+                    </div>
+                    <div class="guest-members-section">
+                        <h4 class="guest-members-title">Personas Invitadas</h4>
+                        <ul class="guest-members-list">
+                            ${membersList}
+                        </ul>
+                    </div>
+                `;
+            }
             // Agregar animación después de un breve delay
             setTimeout(() => {
                 guestInfoDiv.classList.add('animate');
