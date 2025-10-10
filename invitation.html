@@ -166,12 +166,12 @@
                 <div class="location-item">
                     <h3 class="location-subtitle">🏝️ Ceremonia</h3>
                     <p class="venue-name">Playa del Hotel Venetur</p>
-                    <p class="venue-details">💍💒 4:45 P.M.</p>
+                    <p class="venue-details">💍💒 4:30 P.M.</p>
                 </div>
                 <div class="location-item">
                     <h3 class="location-subtitle">🍾 Recepción</h3>
                     <p class="venue-name">Salón El Yate</p>
-                    <p class="venue-details">9:00 P.M.</p>
+                    <p class="venue-details">8:30 P.M.</p>
                 </div>
             </div>
             
@@ -242,18 +242,52 @@
     <!-- Dress Code Section -->
     <section class="dress-code-section">
         <div class="container">
+            <h2 class="dress-code-title">CÓDIGO DE VESTIMENTA</h2>
             <div class="dress-code-content">
-                <h2 class="dress-code-title">CÓDIGO DE VESTIMENTA</h2>
-                <p class="dress-code-subtitle">FORMAL</p>
+                <p class="dress-code-subtitle">Ceremonia: COCTEL TROPICAL</p>
                 <div class="dress-code-grid">
                     <div class="dress-code-item">
-                        <img src="traje.png" alt="Traje para Caballeros" class="dress-icon">
-                        <p class="dress-label">Caballeros: traje (no beige)</p>
+                        <img src="traje.png" alt="Traje de Coctel para Caballeros" class="dress-icon">
+                        <p class="dress-label">Caballeros: traje de coctel</p>
                     </div>
                     <div class="dress-code-item">
-                        <img src="vestido.png" alt="Vestido para Damas" class="dress-icon">
-                        <p class="dress-label">Damas: vestido largo (no blanco)</p>
+                        <img src="vestido.png" alt="Vestido de Coctel para Damas" class="dress-icon">
+                        <p class="dress-label">Damas: vestido de coctel</p>
                     </div>
+                </div>
+            </div>
+            <div class="dress-code-content">
+                <p class="dress-code-subtitle">Recepción: FORMAL</p>
+                <div class="dress-code-grid">
+                    <div class="dress-code-item">
+                        <img src="trajeformal.png" alt="Traje Formal para Caballeros" id="formal" class="dress-icon">
+                        <p class="dress-label">Caballeros: traje formal</p>
+                    </div>
+                    <div class="dress-code-item">
+                        <img src="vestidoformal.png" alt="Vestido Formal para Damas" id="formal2" class="dress-icon">
+                        <p class="dress-label">Damas: vestido formal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Forbidden Colors Section -->
+    <section class="forbidden-colors-section">
+        <div class="container">
+            <h2 class="forbidden-colors-title">COLORES NO PERMITIDOS:</h2>
+            <div class="forbidden-colors-grid">
+                <div class="color-item">
+                    <div class="color-circle" style="background-color: var(--white);"></div>
+                    <p class="color-label">Blanco</p>
+                </div>
+                <div class="color-item">
+                    <div class="color-circle" style="background-color: var(--green-military);"></div>
+                    <p class="color-label">Verde Militar</p>
+                </div>
+                <div class="color-item">
+                    <div class="color-circle" style="background-color: var(--beige-light);"></div>
+                    <p class="color-label">Beige Clarito</p>
                 </div>
             </div>
         </div>
@@ -402,6 +436,18 @@
 
             const dressCodeItems = document.querySelectorAll('.dress-code-item');
             dressCodeItems.forEach((item, index) => {
+                item.style.transitionDelay = `${index * 0.2}s`;
+                observer.observe(item);
+            });
+
+            // Observar elementos del forbidden colors
+            const forbiddenColorsTitle = document.querySelector('.forbidden-colors-title');
+            if (forbiddenColorsTitle) {
+                observer.observe(forbiddenColorsTitle);
+            }
+
+            const colorItems = document.querySelectorAll('.color-item');
+            colorItems.forEach((item, index) => {
                 item.style.transitionDelay = `${index * 0.2}s`;
                 observer.observe(item);
             });

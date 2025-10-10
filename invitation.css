@@ -1680,6 +1680,14 @@ input[type="number"]:focus, input[type="text"]:focus {
     transition: transform 0.3s ease;
 }
 
+/* Ajuste de opacidad para imágenes de ceremonia (traje.png y vestido.png) */
+.dress-code-section .dress-code-content:first-of-type .dress-icon {
+    filter: brightness(1.1);
+}
+
+#formal {filter: brightness(0.9);}
+#formal2 {filter: brightness(0.9);}
+
 .dress-icon:hover {
     transform: scale(1.05);
 }
@@ -1725,6 +1733,108 @@ input[type="number"]:focus, input[type="text"]:focus {
     }
 
     .dress-code-item.animate {
+        transition-delay: 0s;
+    }
+}
+
+/* Forbidden Colors Section */
+.forbidden-colors-section {
+    padding: 40px 0;
+    background: var(--cream);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.forbidden-colors-title {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: var(--brown-dark);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.forbidden-colors-title.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.forbidden-colors-grid {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 40px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.color-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease-out;
+    cursor: pointer;
+}
+
+.color-item.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.color-item:nth-child(1).animate {
+    transition-delay: 0.2s;
+}
+
+.color-item:nth-child(2).animate {
+    transition-delay: 0.3s;
+}
+
+.color-item:nth-child(3).animate {
+    transition-delay: 0.4s;
+}
+
+.color-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 3px solid var(--brown-dark);
+    transition: transform 0.3s ease;
+}
+
+.color-circle:hover {
+    transform: scale(1.1);
+}
+
+.color-label {
+    font-family: "Playfair Display", serif;
+    font-size: 1rem;
+    color: var(--brown-medium);
+    text-align: center;
+    margin: 0;
+    line-height: 1.4;
+    font-weight: 400;
+}
+
+/* Responsive for Forbidden Colors */
+@media (max-width: 760px) {
+    .forbidden-colors-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .forbidden-colors-title {
+        font-size: 1.5rem;
+    }
+
+    .color-item.animate {
         transition-delay: 0s;
     }
 }
