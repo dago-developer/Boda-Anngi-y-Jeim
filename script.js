@@ -1,5 +1,5 @@
 // Fecha objetivo (6 Diciembre 2025 16:45 local)
-const targetDate = new Date("2025-12-06T16:45:00");
+const targetDate = new Date("2026-12-05T00:00:00");
 
 const elDays = document.getElementById("days");
 const elHours = document.getElementById("hours");

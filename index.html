@@ -49,86 +49,83 @@
             const passwordSuccess = document.getElementById('passwordSuccess');
 
             // Base de datos de contraseñas con información específica de cada familia
-           const passwordDatabase = {
 
+const passwordDatabase = {
+  // MESA 1
 
-  // Mesa novia
-  
-  "hermanosmoreno": {
-    familyName: "Hermanos Moreno",
-    tableNumber: "Mesa de la novia",
-    maxGuests: 2,
-    members: ["Ángel Moreno", "María Rosa Moreno"]
-  },
-  // Mesa 1
   "familiakabbabemalave": {
     familyName: "Familia Kabbabe Malavé",
     tableNumber: "1",
     maxGuests: 2,
     members: ["Jorge Kabbabe", "María Malavé"]
   },
+
   "familiasalmassighislain": {
     familyName: "Familia Salmassi Ghislain",
     tableNumber: "1",
     maxGuests: 3,
-    members: ["Juan Salmassi", "Soraya Ghislain", "Johismar Salmassi"]
+    members: ["Soraya", "Juan", "Johismar"],
+    memberTables: { "Johismar": "13" }
   },
+
   "srsalmasiyesposa": {
-    familyName: "Sr. Salmassi y esposa",
+    familyName: "Familia Salmassi",
     tableNumber: "1",
     maxGuests: 2,
     members: ["Ismary", "Jhonny"]
   },
-  "familiakabbabescalia": {
+
+  "familiakabbabescali": {
     familyName: "Familia Kabbabe Scalia",
     tableNumber: "1",
     maxGuests: 2,
-    members: ["Beba Scalia", "José Kabbabe"]
+    members: ["José", "Beba"]
   },
-  "familiabriceño": {
+
+  "familiabriceno": {
     familyName: "Familia Briceño",
     tableNumber: "1",
     maxGuests: 2,
-    members: ["Mercedes", "Gabriela Briceño"]
-  },
-  "familiakabbabealbarran": {
-    familyName: "Familia Kabbabe Albarrán",
-    tableNumber: "1",
-    maxGuests: 2,
-    members: ["Daniel Kabbabe", "Jaimar Albarrán"]
+    members: ["Gabriela Briceño", "Mercedes"]
   },
 
-  // Mesa 2
-  "familiaferminvelasquez": {
-    familyName: "Familia Fermín Velásquez",
-    tableNumber: "2",
-    maxGuests: 3,
-    members: ["Antonio Fermín", "Josefina Velásquez", "Ivanna Fermín"]
+  "salomonsalem": {
+    familyName: "Salomón Salem",
+    tableNumber: "1",
+    maxGuests: 1,
+    members: ["Salomón Salem"]
   },
-  "familiapilar": {
-    familyName: "Familia Pilar",
+
+  // MESA 2
+
+  "salmassinadimagabriel": {
+    familyName: "Familia Salmassi",
     tableNumber: "2",
     maxGuests: 2,
-    members: ["Mary Pilar", "Roxana Pilar"]
+    members: ["Nadima", "Gabriel"]
   },
-  "marianeladelarosa": {
-    familyName: "Marianela de la Rosa",
-    tableNumber: "2",
-    maxGuests: 1,
-    members: ["Marianela de la Rosa"]
-  },
-  "eva": {
-    familyName: "Eva",
+
+  "salmassijorgeolimpia": {
+    familyName: "Familia Salmassi",
     tableNumber: "2",
     maxGuests: 2,
-    members: ["Eva", "Acompañante"]
+    members: ["Jorge", "Olimpia"]
   },
-  "alexissalmassi": {
-    familyName: "Alexis Salmassi",
+
+  "bridouxsalmasi": {
+    familyName: "Familia Bridoux Salmassi",
     tableNumber: "2",
-    maxGuests: 1,
-    members: ["Alexis Salmassi"]
+    maxGuests: 2,
+    members: ["Mauricio", "Ivonne"]
   },
+
+  "familiakabbabebetymireya": {
+    familyName: "Familia Kabbabe",
+    tableNumber: "2",
+    maxGuests: 2,
+    members: ["Bety", "Mireya"]
+  },
+
   "lalisalmassi": {
     familyName: "Lali Salmassi",
     tableNumber: "2",
@@ -136,495 +133,543 @@
     members: ["Lali Salmassi"]
   },
 
-  // Mesa 3
-  "familianoschese": {
-    familyName: "Familia Noschese",
-    tableNumber: "3",
-    maxGuests: 3,
-    members: ["Giuseppe Noschese", "Marilyn", "José Gabriel Noschese"]
+  "carlosgarcia": {
+    familyName: "Carlos García",
+    tableNumber: "2",
+    maxGuests: 1,
+    members: ["Carlos García"]
   },
+
+  "alexissalmassi": {
+    familyName: "Alexis Salmassi",
+    tableNumber: "2",
+    maxGuests: 1,
+    members: ["Alexis Salmassi"]
+  },
+
+  // MESA 3
+
+  "familiabarriosperez": {
+    familyName: "Familia Barrios Pérez",
+    tableNumber: "3",
+    maxGuests: 5,
+    members: [
+      "América Pérez",
+      "Carlos Barrios",
+      "Carlos Julio Barrios",
+      "Carlos Alberto Barrios",
+      "Jessica"
+    ]
+  },
+
+  "familiaalarconperez": {
+    familyName: "Familia Alarcón Pérez",
+    tableNumber: "3",
+    maxGuests: 2,
+    members: ["Álvaro Alarcón", "Zoilymar"]
+  },
+
+  "familiaperez3": {
+    familyName: "Familia Pérez",
+    tableNumber: "3",
+    maxGuests: 2,
+    members: ["Gregori", "Gertrudys"]
+  },
+
+  "familiamoreno3": {
+    familyName: "Familia Moreno",
+    tableNumber: "3",
+    maxGuests: 2,
+    members: ["Mauge Moreno", "Fito"],
+    memberTables: { "Fito": "13" }
+  },
+
+  "familiaperoza": {
+    familyName: "Familia Peroza",
+    tableNumber: "3",
+    maxGuests: 2,
+    members: ["Marilyn Peroza", "Rainier Peroza"],
+    memberTables: { "Rainier Peroza": "13" }
+  },
+
+  // MESA 4
+
   "familianoschesesilva": {
     familyName: "Familia Noschese Silva",
-    tableNumber: "3",
+    tableNumber: "4",
     maxGuests: 2,
     members: ["Gino Noschese", "Blanca Silva"]
   },
+
+  "familiajazzan": {
+    familyName: "Familia Jazzan",
+    tableNumber: "4",
+    maxGuests: 2,
+    members: ["Alae Jazzan", "Amal Jazzan"]
+  },
+
+  "familiamora4": {
+    familyName: "Familia Mora",
+    tableNumber: "4",
+    maxGuests: 2,
+    members: ["Adrián", "Andrea"]
+  },
+
+  "rubynasser": {
+    familyName: "Ruby Nasser",
+    tableNumber: "4",
+    maxGuests: 1,
+    members: ["Ruby Nasser"]
+  },
+
+  "francescachiomento": {
+    familyName: "Francesca Chiomento",
+    tableNumber: "4",
+    maxGuests: 1,
+    members: ["Francesca Chiomento"]
+  },
+
   "danielreyes": {
     familyName: "Daniel Reyes",
-    tableNumber: "3",
+    tableNumber: "4",
     maxGuests: 1,
     members: ["Daniel Reyes"]
   },
-  "familiajazzannazzer": {
-    familyName: "Familia Jazzan Nazzer",
-    tableNumber: "3",
-    maxGuests: 2,
-    members: ["Alae Jazzan", "Amal Nazzer"]
-  },
-  "familianazzer": {
-    familyName: "Familia Nazzer",
-    tableNumber: "3",
-    maxGuests: 2,
-    members: ["Amira Nazzer", "Rubi Nazzer"]
-  },
+
   "jaquelinejazzan": {
     familyName: "Jaqueline Jazzan",
-    tableNumber: "3",
+    tableNumber: "4",
     maxGuests: 1,
     members: ["Jaqueline Jazzan"]
   },
 
-  // Mesa 4
-  "wilmermaestre": {
-    familyName: "Wilmer Maestre",
-    tableNumber: "4",
-    maxGuests: 1,
-    members: ["Wilmer Maestre"]
-  },
-  "hectorvillarroel": {
-    familyName: "Héctor Villarroel",
-    tableNumber: "4",
-    maxGuests: 1,
-    members: ["Héctor Villarroel"]
-  },
-  "joaquinmarquez": {
-    familyName: "Joaquín Márquez",
-    tableNumber: "4",
-    maxGuests: 1,
-    members: ["Joaquín Márquez"]
-  },
-  "williammarquez": {
-    familyName: "William Márquez",
-    tableNumber: "4",
-    maxGuests: 1,
-    members: ["William Márquez"]
-  },
-  "albertolara": {
-    familyName: "Alberto Lara",
-    tableNumber: "4",
-    maxGuests: 1,
-    members: ["Alberto Lara"]
-  },
-  "tono": {
-    familyName: "Toño",
-    tableNumber: "4",
-    maxGuests: 1,
-    members: ["Toño"]
-  },
-  "jeanfranco": {
-    familyName: "Jean Franco",
-    tableNumber: "4",
-    maxGuests: 1,
-    members: ["Jean Franco"]
-  },
-  "gabrielyveronica": {
-    familyName: "Gabriel y Verónica Acuña",
-    tableNumber: "4",
-    maxGuests: 2,
-    members: ["Gabriel Acuña", "Verónica Acuña"]
-  },
-  "faisalyarianna": {
-    familyName: "Faisal y Arianna",
-    tableNumber: "4",
-    maxGuests: 2,
-    members: ["Faisal Jazzan", "Arianna Mota"]
-  },
-    "antonioflores": {
-    familyName: "Antonio Flores",
-    tableNumber: "4",
-    maxGuests: 1,
-    members: ["Antonio FLores"]
-  },
-    "adriamora": {
-    familyName: "Adrian Mora y Esposa",
-    tableNumber: "4",
-    maxGuests: 2,
-    members: ["Adrian Mora", "Esposa"]
-  },
-    "danielfigueroa": {
-    familyName: "Daniel Figueroa",
-    tableNumber: "4",
-    maxGuests: 1,
-    members: ["Daniel Figueroa"]
-  },
+  // MESA 5
 
-
-
-  // Mesa 5
-  "rahinierynicol": {
-    familyName: "Rahinier y Nicol",
+  "familiakabbabealbarran": {
+    familyName: "Familia Kabbabe Albarrán",
     tableNumber: "5",
     maxGuests: 2,
-    members: ["Rahinier Peroza", "Nicol Peroza"]
+    members: ["Daniel Kabbabe", "Jaimar Albarrán"]
   },
-  "moisesycamila": {
-    familyName: "Moises y Camila",
+
+  "evalaresoscarrodriguez": {
+    familyName: "Eva Lares y Oscar Rodríguez",
     tableNumber: "5",
     maxGuests: 2,
-    members: ["Moises Arévalo", "Camila Millán"]
-  },
-  "joselinares": {
-    familyName: "José Linares",
-    tableNumber: "5",
-    maxGuests: 1,
-    members: ["José Linares"]
-  },
-  "sarakattae": {
-    familyName: "Sara Kattae",
-    tableNumber: "5",
-    maxGuests: 1,
-    members: ["Sara Kattae"]
-  },
-  "andresmarquez": {
-    familyName: "Andrés Márquez",
-    tableNumber: "5",
-    maxGuests: 1,
-    members: ["Andrés Márquez"]
-  },
-  "josejesusmorey": {
-    familyName: "José Jesús Morey",
-    tableNumber: "5",
-    maxGuests: 1,
-    members: ["José Jesús Morey"]
-  },
-  "stefaniafernandez": {
-    familyName: "Stefania Fernández",
-    tableNumber: "5",
-    maxGuests: 1,
-    members: ["Stefania Fernández"]
-  },
-  "sara5": {
-    familyName: "Sara",
-    tableNumber: "5",
-    maxGuests: 1,
-    members: ["Sara"]
+    members: ["Eva Lares", "Oscar Rodríguez"]
   },
 
-    "eliasjergo": {
-    familyName: "Elias Jergo",
+  "familiahernandez": {
+    familyName: "Familia Hernández",
     tableNumber: "5",
-    maxGuests: 1,
-    members: ["Elias Jergo"]
+    maxGuests: 2,
+    members: ["Armando Hernández", "Mary"]
   },
 
-    "jorgenajjar": {
-    familyName: "Jorge Najjar",
+  "familiapilar5": {
+    familyName: "Familia Pilar",
     tableNumber: "5",
-    maxGuests: 1,
-    members: ["Jorge Najjar"]
+    maxGuests: 4,
+    members: ["Mary Pilar", "Esposo", "Mary Rosa", "Esposo"]
   },
 
-  // Mesa 6
+  // MESA 6
 
-  "familiarosales": {
-    familyName: "Familia Rosales",
+  "familiacaraballo": {
+    familyName: "Familia Caraballo",
     tableNumber: "6",
     maxGuests: 2,
-    members: ["Ivan Rosales", "Y esposa"]
+    members: ["Enith Caraballo", "Evelio"]
   },
 
-  "hildacova": {
-    familyName: "Hilda Cova",
+  "familiacova": {
+    familyName: "Familia Cova",
     tableNumber: "6",
-    maxGuests: 1,
-    members: ["Hilda Cova"]
+    maxGuests: 2,
+    members: ["Hilda Cova", "Esposo"]
   },
-  "enithcaraballo": {
-    familyName: "Enith Caraballo",
-    tableNumber: "6",
-    maxGuests: 1,
-    members: ["Enith Caraballo"]
-  },
+
   "familiarodriguezperez": {
     familyName: "Familia Rodríguez Pérez",
     tableNumber: "6",
     maxGuests: 2,
     members: ["Yulis Pérez", "Luis José Rodríguez"]
   },
-  "petracastañeda": {
+
+  "familiarengel6": {
+    familyName: "Familia Rengel",
+    tableNumber: "6",
+    maxGuests: 2,
+    members: ["Rosa Rengel", "Valeria"],
+    memberTables: { "Valeria": "13" }
+  },
+
+  "familiarosales": {
+    familyName: "Familia Rosales",
+    tableNumber: "6",
+    maxGuests: 2,
+    members: ["Iván Rosales", "Esposa"]
+  },
+
+  "petracastaneda": {
     familyName: "Petra Castañeda",
     tableNumber: "6",
     maxGuests: 1,
     members: ["Petra Castañeda"]
   },
-  "maugemoreno": {
-    familyName: "Mauge Moreno",
-    tableNumber: "6",
-    maxGuests: 1,
-    members: ["Mauge Moreno"]
-  },
-  "marilynperoza": {
-    familyName: "Marilyn Peroza",
-    tableNumber: "6",
-    maxGuests: 1,
-    members: ["Marilyn Peroza"]
-  },
-  "familiarengel6": {
-    familyName: "Familia Rengel",
-    tableNumber: "6",
+
+  // MESA 7
+
+  "faisalyarianna": {
+    familyName: "Faisal y Arianna",
+    tableNumber: "7",
     maxGuests: 2,
-    members: ["Rosa Rengel", "Valeria Rengel"]
-  },
-  "familiapatiño6": {
-    familyName: "Familia Patiño",
-    tableNumber: "6",
-    maxGuests: 2,
-    members: ["Isabel", "César"]
+    members: ["Faisal Jazzan", "Arianna Mota"]
   },
 
-  // Mesa 7
-  "familiabarriosperez": {
-    familyName: "Familia Barrios Pérez",
+  "alexandersanchezanyela": {
+    familyName: "Alexander Sánchez y Anyela Castañeda",
     tableNumber: "7",
-    maxGuests: 5,
-    members: ["Carlos Barrios", "América Pérez", "Carlos Alberto Barrios", "Carlos Julio Barrios", "Jessica"]
+    maxGuests: 2,
+    members: ["Alexander Sánchez", "Anyela Castañeda"]
   },
-  "familiaalarconramirez": {
-    familyName: "Familia Alarcón Ramírez",
+
+  "pauladiazraymerbislick": {
+    familyName: "Paula Díaz y Raymer Bislick",
     tableNumber: "7",
-    maxGuests: 4,
-    members: ["Zoilymar Ramírez", "Álvaro Alarcón", "Gregory Ramírez", "Gertrudis"]
+    maxGuests: 2,
+    members: ["Paula Díaz", "Raymer Bislick"]
   },
-  "familiaguzmangudiño": {
-    familyName: "Familia Guzmán Gudiño",
+
+  "andresmarquezynovia": {
+    familyName: "Andrés Márquez y acompañante",
     tableNumber: "7",
+    maxGuests: 2,
+    members: ["Andrés Márquez", "Novia"]
+  },
+
+  "mariavelazco": {
+    familyName: "María Velazco",
+    tableNumber: "7",
+    maxGuests: 1,
+    members: ["María Velazco"]
+  },
+
+  "orlainysvasquez": {
+    familyName: "Orlainys Vásquez",
+    tableNumber: "7",
+    maxGuests: 1,
+    members: ["Orlainys Vásquez"]
+  },
+
+  // MESA 8
+
+  "familiaferminvelasquez": {
+    familyName: "Familia Fermín",
+    tableNumber: "8",
     maxGuests: 3,
-    members: ["Andrys Gudiño", "Francisco Guzmán", "María Celeste Pérez"]
+    members: ["Josefina", "Antonio", "Ivanna"],
+    memberTables: { "Ivanna": "13" }
   },
 
-  // Mesa 8
-  "familiaviloria": {
-    familyName: "Familia Viloria",
+  "familiamarquez8": {
+    familyName: "Familia Márquez",
     tableNumber: "8",
-    maxGuests: 2,
-    members: ["Katy", "Lulu"]
+    maxGuests: 3,
+    members: ["Sr. William", "Sra. María José", "William Márquez"]
   },
 
-  "familiabarreto": {
-    familyName: "Familia Barreto",
+  "familiamora8": {
+    familyName: "Familia Mora",
     tableNumber: "8",
     maxGuests: 2,
-    members: ["Emil", "Marisabel"]
+    members: ["Adrián", "Andrea"]
   },
-  "familiarengel8": {
+
+  "marianeladelarosa": {
+    familyName: "Marianela",
+    tableNumber: "8",
+    maxGuests: 1,
+    members: ["Marianela"]
+  },
+
+  "jesusarmada": {
+    familyName: "Jesús Armada",
+    tableNumber: "8",
+    maxGuests: 1,
+    members: ["Jesús Armada"]
+  },
+
+  "wilmermaestre": {
+    familyName: "Wilmer Maestre",
+    tableNumber: "8",
+    maxGuests: 1,
+    members: ["Wilmer Maestre"]
+  },
+
+  // MESA 9
+
+  "alfonzo": {
+    familyName: "Alfonzo",
+    tableNumber: "9",
+    maxGuests: 1,
+    members: ["Alfonzo"]
+  },
+
+  "antonioflores": {
+    familyName: "Antonio Flores",
+    tableNumber: "9",
+    maxGuests: 1,
+    members: ["Antonio Flores"]
+  },
+
+  "joaquinnazareth": {
+    familyName: "Joaquín y Nazareth",
+    tableNumber: "9",
+    maxGuests: 2,
+    members: ["Joaquín", "Nazareth"]
+  },
+
+  "adrianmartinez": {
+    familyName: "Adrián Martínez",
+    tableNumber: "9",
+    maxGuests: 1,
+    members: ["Adrián Martínez"]
+  },
+
+  "albertolara": {
+    familyName: "Alberto Lara",
+    tableNumber: "9",
+    maxGuests: 1,
+    members: ["Alberto Lara"]
+  },
+
+  "danielfigueroa": {
+    familyName: "Daniel Figueroa",
+    tableNumber: "9",
+    maxGuests: 1,
+    members: ["Daniel Figueroa"]
+  },
+
+  "miguelcova": {
+    familyName: "Miguel Cova",
+    tableNumber: "9",
+    maxGuests: 1,
+    members: ["Miguel Cova"]
+  },
+
+  "diego": {
+    familyName: "Diego",
+    tableNumber: "9",
+    maxGuests: 1,
+    members: ["Diego"]
+  },
+
+  "carlosbadillo": {
+    familyName: "Carlos Badillo",
+    tableNumber: "9",
+    maxGuests: 1,
+    members: ["Carlos Badillo"]
+  },
+
+  // MESA 10
+
+  "nicolecarroz": {
+    familyName: "Nicole Carroz",
+    tableNumber: "10",
+    maxGuests: 1,
+    members: ["Nicole Carroz"]
+  },
+
+  "stefaniafernandez": {
+    familyName: "Estefanía Fernández",
+    tableNumber: "10",
+    maxGuests: 1,
+    members: ["Estefanía Fernández"]
+  },
+
+  "mariarosamoreno": {
+    familyName: "María Rosa Moreno",
+    tableNumber: "10",
+    maxGuests: 1,
+    members: ["María Rosa Moreno"]
+  },
+
+  "moisesycamila": {
+    familyName: "Moisés y Camila",
+    tableNumber: "10",
+    maxGuests: 2,
+    members: ["Moisés Arévalo", "Camila"]
+  },
+
+  "joselinares": {
+    familyName: "José Linares",
+    tableNumber: "10",
+    maxGuests: 1,
+    members: ["José Linares"]
+  },
+
+  "gilbanaarmada": {
+    familyName: "Gilbana Armada",
+    tableNumber: "10",
+    maxGuests: 1,
+    members: ["Gilbana Armada"]
+  },
+
+  "jorgenajjar": {
+    familyName: "Jorge Najjar",
+    tableNumber: "10",
+    maxGuests: 1,
+    members: ["Jorge Najjar"]
+  },
+
+  "eliasjergo": {
+    familyName: "Elías Jergo",
+    tableNumber: "10",
+    maxGuests: 1,
+    members: ["Elías Jergo"]
+  },
+
+  "sarakattae": {
+    familyName: "Sara Kattae",
+    tableNumber: "10",
+    maxGuests: 1,
+    members: ["Sara Kattae"]
+  },
+
+  // MESA 11
+
+  "sara11": {
+    familyName: "Sara",
+    tableNumber: "11",
+    maxGuests: 1,
+    members: ["Sara"]
+  },
+
+  "jeanfranco": {
+    familyName: "Jean Franco",
+    tableNumber: "11",
+    maxGuests: 1,
+    members: ["Jean Franco"]
+  },
+
+  "angelmoreno": {
+    familyName: "Ángel Moreno",
+    tableNumber: "11",
+    maxGuests: 1,
+    members: ["Ángel Moreno"]
+  },
+
+  "montserrat": {
+    familyName: "Montserrat",
+    tableNumber: "11",
+    maxGuests: 1,
+    members: ["Montserrat"]
+  },
+
+  "veronicaygabrielacuna": {
+    familyName: "Verónica y Gabriel Acuña",
+    tableNumber: "11",
+    maxGuests: 2,
+    members: ["Verónica Acuña", "Gabriel Acuña"]
+  },
+
+  "juanyluisnoriega": {
+    familyName: "Juan y Luis Noriega",
+    tableNumber: "11",
+    maxGuests: 2,
+    members: ["Juan Noriega", "Luis Noriega"]
+  },
+
+  "dainelys": {
+    familyName: "Dainelys",
+    tableNumber: "11",
+    maxGuests: 1,
+    members: ["Dainelys"]
+  },
+
+  "karolina": {
+    familyName: "Karolina",
+    tableNumber: "11",
+    maxGuests: 1,
+    members: ["Karolina"]
+  },
+
+  // MESA 12
+
+  "familiarengel12": {
     familyName: "Familia Rengel",
-    tableNumber: "8",
+    tableNumber: "12",
     maxGuests: 2,
-    members: ["Lili", "Juan"]
+    members: ["Lily", "Juan"]
   },
-  "familiapatiño8": {
+
+  "familiapatino12": {
     familyName: "Familia Patiño",
-    tableNumber: "8",
+    tableNumber: "12",
     maxGuests: 2,
     members: ["Yily", "Carlos"]
   },
-   "nildalicet": {
-    familyName: "Nilda Licet",
-    tableNumber: "8",
-    maxGuests: 1,
-    members: ["Nilda Licet"]
-  },
-   "familiasalmassi8": {
-    familyName: "Familia Salmassi",
-    tableNumber: "8",
+
+  "familiabarreto12": {
+    familyName: "Familia Barreto",
+    tableNumber: "12",
     maxGuests: 2,
-    members: ["Jorge", "Olimpica"]
+    members: ["Emil", "Marisabel"]
   },
 
-   "pastores": {
-    familyName: "Pastores",
-    tableNumber: "8",
+  "familiamoreno12": {
+    familyName: "Familia Moreno",
+    tableNumber: "12",
+    maxGuests: 2,
+    members: ["María", "Johan"]
+  },
+
+  "familiaperez12": {
+    familyName: "Familia Pérez",
+    tableNumber: "12",
     maxGuests: 4,
-    members: ["Pastor Rafael Malave", "Pastora Anais", "Hijos"]
+    members: ["Andrys", "Isnotu", "Francisco", "María Celeste (Mesa 13)"]
   },
 
+  // MESA 13
 
-  // Mesa 9
-
-  "mauricioivonne": {
-    familyName: "Mauricio e Ivonne",
-    tableNumber: "9",
-    maxGuests: 2,
-    members: ["Mauricio", "Ivonne"]
-  },
-  "familiasalmassi1": {
-    familyName: "Familia Salmassi",
-    tableNumber: "9",
-    maxGuests: 2,
-    members: ["Nadima", "Gabriel"]
-  },
-  "familiasalmassi2": {
-    familyName: "Familia Salmassi",
-    tableNumber: "9",
-    maxGuests: 4,
-    members: ["Jorge Salmassi", "Norma Labrador", "Sara Salmassi", "Eduard Salmassi"]
-  },
-  "familiakabbabe9": {
-    familyName: "Familia Kabbabe",
-    tableNumber: "9",
-    maxGuests: 4,
-    members: ["Julieta", "Bety", "José", "Mireya"]
-  },
-  "samirsalmassi": {
-    familyName: "Samir Salmassi",
-    tableNumber: "9",
+  "karyelis": {
+    familyName: "Karyelis",
+    tableNumber: "13",
     maxGuests: 1,
-    members: ["Samir Salmassi"]
-  },
-  "salomonsalem": {
-    familyName: "Salomón Salem",
-    tableNumber: "9",
-    maxGuests: 1,
-    members: ["Salomón Salem"]
-  },
-  "carlosgarcia": {
-    familyName: "Carlos García",
-    tableNumber: "9",
-    maxGuests: 1,
-    members: ["Carlos García"]
+    members: ["Karyelis"]
   },
 
-  // INVITACIONES EXTRANJERAS - NO ASISTIRAN A LA BODA
-
- "familiagudiño": {
-    familyName: "Familia Gudiño",
-    tableNumber: "extranjero",
-    maxGuests: 2,
-    members: ["Andrys Gudiño", "Fabián Gudiño"],
-    isForeign: true
+  "valeriacoll": {
+    familyName: "Valeria Coll",
+    tableNumber: "13",
+    maxGuests: 1,
+    members: ["Valeria Coll"]
   },
 
-   "familiabaumann": {
-    familyName: "Familia Baumann",
-    tableNumber: "extranjero",
-    maxGuests: 6,
-    members: ["Remo", "Silvia", "Jana", "Lena", "Marco", "Margarita"],
-    isForeign: true
+  "alexmago": {
+    familyName: "Alex Mago",
+    tableNumber: "13",
+    maxGuests: 1,
+    members: ["Alex Mago"]
   },
 
-  "igorimanolf": {
-    familyName: "Igor e Imanol Fermín",
-    tableNumber: "extranjero",
+  "mariaesther": {
+    familyName: "María Esther",
+    tableNumber: "13",
+    maxGuests: 1,
+    members: ["María Esther"]
+  },
+
+  "yudermisydomingo": {
+    familyName: "Yudermis y Domingo",
+    tableNumber: "13",
     maxGuests: 2,
-    members: ["Igor Fermín", "Imanol Fermín"],
-    isForeign: true
-  },
-  "joseantoniof": {
-    familyName: "José Antonio Fariñas",
-    tableNumber: "extranjero",
-    maxGuests: 1,
-    members: ["José Antonio Fariñas"],
-    isForeign: true
-  },
-  "domingoacuna": {
-    familyName: "Domingo Acuña y familia",
-    tableNumber: "extranjero",
-    maxGuests: 2,
-    members: ["Domingo Acuña", "Familia"],
-    isForeign: true
-  },
-  "hagoparamk": {
-    familyName: "Hagop y Arame Kajounian",
-    tableNumber: "extranjero",
-    maxGuests: 2,
-    members: ["Hagop Kajounian", "Arame Kajounian"],
-    isForeign: true
-  },
-  "pastorduverger": {
-    familyName: "Pastor Duverger",
-    tableNumber: "extranjero",
-    maxGuests: 1,
-    members: ["Pastor Duverger"],
-    isForeign: true
-  },
-  "christianb": {
-    familyName: "Christian Betancourt",
-    tableNumber: "extranjero",
-    maxGuests: 1,
-    members: ["Christian Betancourt"],
-    isForeign: true
-  },
-  "fiorellar": {
-    familyName: "Fiorella Rodríguez",
-    tableNumber: "extranjero",
-    maxGuests: 1,
-    members: ["Fiorella Rodríguez"],
-    isForeign: true
-  },
-  "andreams": {
-    familyName: "Andrea Márquez y Santiago Moreno",
-    tableNumber: "extranjero",
-    maxGuests: 2,
-    members: ["Andrea Márquez", "Santiago Moreno"],
-    isForeign: true
-  },
-  "andresojeda": {
-    familyName: "Familia Ojeda Lara",
-    tableNumber: "extranjero",
-    maxGuests: 3,
-    members: ["Andrés Ojeda", "Carolina Lara", "Alexandra Ojeda"],
-    isForeign: true
-  },
-  "nathanl": {
-    familyName: "Nathan Larsen",
-    tableNumber: "extranjero",
-    maxGuests: 1,
-    members: ["Nathan Larsen"],
-    isForeign: true
-  },
-  "soraidak": {
-    familyName: "Soraida Kabbabe",
-    tableNumber: "extranjero",
-    maxGuests: 1,
-    members: ["Soraida Kabbabe"],
-    isForeign: true
-  },
-  "silvanas": {
-    familyName: "Silvana Salmassi",
-    tableNumber: "extranjero",
-    maxGuests: 1,
-    members: ["Silvana Salmassi"],
-    isForeign: true
-  },
-  "warranl": {
-    familyName: "Sr. Warran Lech y esposa",
-    tableNumber: "extranjero",
-    maxGuests: 2,
-    members: ["Warran Lech", "Esposa"],
-    isForeign: true
-  },
-  "benstephenson": {
-    familyName: "Ben Stephenson",
-    tableNumber: "extranjero",
-    maxGuests: 1,
-    members: ["Ben Stephenson"],
-    isForeign: true
-  },
-  "jorgekabbabe": {
-    familyName: "Sr. Jorge Kabbabe y Sra. Claire",
-    tableNumber: "extranjero",
-    maxGuests: 2,
-    members: ["Jorge Kabbabe", "Claire"],
-    isForeign: true
-  },
-  "rickjerome": {
-    familyName: "Sr. Rick Jerome",
-    tableNumber: "extranjero",
-    maxGuests: 1,
-    members: ["Rick Jerome"],
-    isForeign: true
-  },
-   "luismeneses": {
-    familyName: "Luis Meneses",
-    tableNumber: "extranjero",
-    maxGuests: 1,
-    members: ["Luis Meneses"],
-    isForeign: true
+    members: ["Yudermis", "Domingo"]
   }
-
-
-
 };
+
 
             function showError(message) {
                 passwordError.textContent = message;
