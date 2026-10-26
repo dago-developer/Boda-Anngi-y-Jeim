@@ -973,6 +973,142 @@ input[type="number"], input[type="text"] { width: 100%; padding: 12px 10px; bord
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+/* DRESS CODE - CLICKABLE IMAGES */
+.dress-reference {
+    cursor: pointer;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.dress-reference:hover {
+    transform: scale(1.06);
+    opacity: 0.85;
+}
+
+.dress-reference:focus-visible {
+    outline: 3px solid #b8955a;
+    outline-offset: 5px;
+}
+
+/* DRESS CODE MODAL */
+.dress-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.82);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.dress-modal.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.dress-modal-content {
+    position: relative;
+    width: min(100%, 700px);
+    max-height: 90vh;
+    overflow: auto;
+    padding: 25px;
+    background: #fff;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+    transform: scale(0.92);
+    transition: transform 0.3s ease;
+}
+
+.dress-modal.active .dress-modal-content {
+    transform: scale(1);
+}
+
+.dress-modal-title {
+    margin: 0 35px 20px;
+    font-size: 1.25rem;
+    color: #333;
+}
+
+.dress-modal-image {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    max-height: 70vh;
+    object-fit: contain;
+    margin: 0 auto;
+    border-radius: 6px;
+}
+
+.dress-modal-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #c0392b;
+    color: #fff;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.dress-modal-close:hover {
+    background: #962d22;
+    transform: scale(1.08);
+}
+
+.dress-modal-close:focus-visible {
+    outline: 3px solid #b8955a;
+    outline-offset: 3px;
+}
+
+/* PREVENT BACKGROUND SCROLL */
+body.dress-modal-open {
+    overflow: hidden;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    .dress-modal {
+        padding: 12px;
+    }
+
+    .dress-modal-content {
+        padding: 20px 12px;
+        max-height: 92vh;
+    }
+
+    .dress-modal-title {
+        font-size: 1.05rem;
+        margin-bottom: 15px;
+    }
+
+    .dress-modal-image {
+        max-height: 75vh;
+    }
+}
+
+/* REDUCED MOTION ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+    .dress-reference,
+    .dress-modal,
+    .dress-modal-content,
+    .dress-modal-close {
+        transition: none;
+    }
+}
+
+
 /* Responsive Design - MANTENIENDO ORGANIZACIÓN */
 @media (max-width: 768px) {
     .rsvp-form-section {

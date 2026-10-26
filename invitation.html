@@ -166,7 +166,7 @@
                 </div>
                 <div class="location-item">
                     <h3 class="location-subtitle">🍾Recepción🎉</h3>
-                    <p class="venue-name">Salón El Yate</p>
+                    <p class="venue-name">Hotel Nueva Toledo</p>
                     <p class="venue-details">9:00 P.M.</p>
                 </div>
             </div>
@@ -184,14 +184,14 @@
                         <img class="timeline-icon" src="entradanovios.png" alt="Entrada Novios">
                     </div>
  
-                    <div class="timeline-item">
-                        <!-- <div class="timeline-time">12:00 A.M.</div> -->
+                    <!-- <div class="timeline-item">
+                         <div class="timeline-time">12:00 A.M.</div>
                         <div class="timeline-content">
                             <h4>Show Sorpresa</h4>
                             <p>Una sorpresa especial para todos</p>
                         </div>
                         <img class="timeline-icon" src="showsorpresa.webp" alt="Show Sorpresa">
-                    </div>
+                    </div> -->
                     <div class="timeline-item">
                         <!-- <div class="timeline-time">12:00 A.M.+</div> -->
                         <div class="timeline-content">
@@ -228,38 +228,123 @@
         </div>
     </section>
 
-    <!-- Dress Code Section -->
-    <section class="dress-code-section">
-        <div class="container">
-            <h2 class="dress-code-title">CÓDIGO DE VESTIMENTA</h2>
-            <div class="dress-code-content">
-                <p class="dress-code-subtitle">Ceremonia: COCTEL PLAYERO</p>
-                <div class="dress-code-grid">
-                    <div class="dress-code-item">
-                        <img src="traje.png" alt="Traje de Coctel para Caballeros" class="dress-icon">
-                        <p class="dress-label">Caballeros</p>
-                    </div>
-                    <div class="dress-code-item">
-                        <img src="vestido.png" alt="Vestido de Coctel para Damas" class="dress-icon">
-                        <p class="dress-label">Damas</p>
-                    </div>
+<!-- Dress Code Section -->
+<section class="dress-code-section">
+    <div class="container">
+        <h2 class="dress-code-title">CÓDIGO DE VESTIMENTA</h2>
+
+        <!-- Ceremonia -->
+        <div class="dress-code-content">
+            <p class="dress-code-subtitle">Ceremonia: CÓCTEL PLAYERO</p>
+
+            <div class="dress-code-grid">
+                <div class="dress-code-item">
+                    <img
+                        src="traje.png"
+                        alt="Traje de cóctel para caballeros"
+                        class="dress-icon dress-reference"
+                        data-image="playeroh.jpg"
+                        data-title="Ceremonia - Caballeros"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Ver referencia de vestimenta playera para caballeros"
+                    >
+                    <p class="dress-label">Caballeros</p>
                 </div>
-            </div>
-            <div class="dress-code-content">
-                <p class="dress-code-subtitle">Recepción: FORMAL ELEGANTE</p>
-                <div class="dress-code-grid">
-                    <div class="dress-code-item">
-                        <img src="trajeformal.png" alt="Traje Formal para Caballeros" id="formal" class="dress-icon">
-                        <p class="dress-label">Caballeros</p>
-                    </div>
-                    <div class="dress-code-item">
-                        <img src="vestidoformal.png" alt="Vestido Formal para Damas" id="formal2" class="dress-icon">
-                        <p class="dress-label">Damas</p>
-                    </div>
+
+                <div class="dress-code-item">
+                    <img
+                        src="vestido.png"
+                        alt="Vestido de cóctel para damas"
+                        class="dress-icon dress-reference"
+                        data-image="playerom.jpeg"
+                        data-title="Ceremonia - Damas"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Ver referencia de vestimenta playera para damas"
+                    >
+                    <p class="dress-label">Damas</p>
                 </div>
             </div>
         </div>
-    </section>
+
+        <!-- Recepción -->
+        <div class="dress-code-content">
+            <p class="dress-code-subtitle">Recepción: FORMAL ELEGANTE</p>
+
+            <div class="dress-code-grid">
+                <div class="dress-code-item">
+                    <img
+                        src="trajeformal.png"
+                        alt="Traje formal para caballeros"
+                        class="dress-icon dress-reference"
+                        data-image="ceremoniah.jpg"
+                        data-title="Recepción - Caballeros"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Ver referencia de vestimenta formal para caballeros"
+                    >
+                    <p class="dress-label">Caballeros</p>
+                </div>
+
+                <div class="dress-code-item">
+                    <img
+                        src="vestidoformal.png"
+                        alt="Vestido formal para damas"
+                        class="dress-icon dress-reference"
+                        data-image="ceremoniam.jpg"
+                        data-title="Recepción - Damas"
+                        tabindex="0"
+                        role="button"
+                        aria-label="Ver referencia de vestimenta formal para damas"
+                    >
+                    <p class="dress-label">Damas</p>
+                </div>
+            </div>
+        </div>
+
+        <p class="dress-code-subtitle>">NOTAS: </p>
+        
+            <p class="dress-note">
+            Para los caballeros, tanto en la ceremonia como en la
+            recepción, NO se permitirá la entrada en shorts.
+        </p>
+        <p class="dress-note">
+            Si le da click en los iconos de vestidos y trajes, podra ver imagenes referenciales, tener en cuenta de igual manera los colores no permitidos.
+        </p>
+    </div>
+</section>
+
+<!-- Dress Code Modal -->
+<div
+    id="dressModal"
+    class="dress-modal"
+    aria-hidden="true"
+>
+    <div
+        class="dress-modal-content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="dressModalTitle"
+    >
+        <button
+            type="button"
+            class="dress-modal-close"
+            id="dressModalClose"
+            aria-label="Cerrar ventana"
+        >&times;</button>
+
+        <h3 id="dressModalTitle" class="dress-modal-title"></h3>
+
+        <img
+            id="dressModalImage"
+            class="dress-modal-image"
+            src=""
+            alt=""
+        >
+    </div>
+</div>
+
 
     <!-- Forbidden Colors Section -->
     <section class="forbidden-colors-section">
@@ -276,7 +361,7 @@
                 </div>
                 <div class="color-item">
                     <div class="color-circle" style="background-color: var(--beige-light);"></div>
-                    <p class="color-label">Beige Clarito</p>
+                    <p class="color-label">Beige Claro</p>
                 </div>
             </div>
         </div>
@@ -553,6 +638,88 @@
                 guestInfoDiv.classList.add('animate');
             }, 500);
         });
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+    const referenceImages = document.querySelectorAll(".dress-reference");
+    const modal = document.getElementById("dressModal");
+    const modalContent = modal.querySelector(".dress-modal-content");
+    const modalImage = document.getElementById("dressModalImage");
+    const modalTitle = document.getElementById("dressModalTitle");
+    const closeButton = document.getElementById("dressModalClose");
+
+    let previouslyFocusedElement = null;
+
+    function openDressModal(imageElement) {
+        previouslyFocusedElement = imageElement;
+
+        const imagePath = imageElement.dataset.image;
+        const title = imageElement.dataset.title;
+
+        modalImage.src = imagePath;
+        modalImage.alt = title;
+        modalTitle.textContent = title;
+
+        modal.classList.add("active");
+        modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("dress-modal-open");
+
+        closeButton.focus();
+    }
+
+    function closeDressModal() {
+        if (!modal.classList.contains("active")) {
+            return;
+        }
+
+        modal.classList.remove("active");
+        modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("dress-modal-open");
+
+        modalImage.src = "";
+
+        if (previouslyFocusedElement) {
+            previouslyFocusedElement.focus();
+        }
+    }
+
+    // Open the modal when a reference image is clicked.
+    referenceImages.forEach((image) => {
+        image.addEventListener("click", () => {
+            openDressModal(image);
+        });
+
+        // Allow keyboard users to open the modal with Enter or Space.
+        image.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                openDressModal(image);
+            }
+        });
+    });
+
+    // Close with the X button.
+    closeButton.addEventListener("click", closeDressModal);
+
+    // Close when clicking the dark background, outside the modal.
+    modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            closeDressModal();
+        }
+    });
+
+    // Do not close when clicking inside the modal content.
+    modalContent.addEventListener("click", (event) => {
+        event.stopPropagation();
+    });
+
+    // Close with the Escape key.
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            closeDressModal();
+        }
+    });
+});
 
 
     </script>
