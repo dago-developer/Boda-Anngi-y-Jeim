@@ -2168,3 +2168,69 @@ input[type="number"]:focus, input[type="text"]:focus {
     }
 }
 
+/* DRESS CODE NOTES */
+.dress-notes {
+    max-width: 750px;
+    margin: 35px auto 10px;
+    padding: 25px 30px;
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(184, 149, 90, 0.35);
+    border-radius: 10px;
+    text-align: left;
+}
+
+/* Notes heading */
+.dress-notes-title {
+    margin: 0 0 22px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(184, 149, 90, 0.5);
+    color: #9a7844;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+/* Individual notes */
+.dress-notes .dress-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 0;
+    padding: 14px 0;
+    color: #444;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.dress-notes .dress-note + .dress-note {
+    margin-top: 10px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(184, 149, 90, 0.2);
+}
+
+/* Decorative marker */
+.dress-note-marker {
+    flex-shrink: 0;
+    color: #b8955a;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .dress-notes {
+        margin: 25px 10px 10px;
+        padding: 20px 16px;
+    }
+
+    .dress-notes-title {
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+    }
+
+    .dress-notes .dress-note {
+        gap: 9px;
+        font-size: 0.9rem;
+    }
+}
